@@ -15,6 +15,22 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->nullable(false);
+            $table->string('image')->nullable(false);
+            $table->text('description')->nullable(false);
+            $table->enum('status', ['active', 'inactive'])->after('description');
+            $table->unsignedBigInteger('category_id')->nullable(false);
+            $table->string('location')->nullable(false);
+            $table->unsignedBigInteger('user_id')->nullable(false);
+
+            $table->foreign('category_id')
+                ->references('id')
+                ->on('categories')
+                ->onDelete('cascade');
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
