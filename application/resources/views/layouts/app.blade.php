@@ -1,4 +1,4 @@
-<!doctype html>
+ <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -40,12 +40,6 @@
                         <li class="nav-item me-4">
                             <a class="nav-link {{ request()->routeIs('aboutus.about') ? 'active' : '' }}" href="{{ route('aboutus.about') }}">about</a>
                         </li> 
-                    </ul>
-
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -59,17 +53,14 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
+                            <li class="nav-item me-4 ">
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('users/profile' , Auth::user()->id) }}">
-                                      Profile
+                                    <a class="nav-link" href="{{ route('users/profile' , Auth::user()->id) }}">
+                                      Profile( {{ Auth::user()->name }} )
                                     </a>
-                                    
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                            </li>
+                            <li class="nav-item me-4">
+                                    <a class="nav-link" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -89,9 +80,9 @@
         @if ($errors->any())
         <div class="flash-error mt-5 text-center">
             <h3> There is an error, please check out ! </h3>
-            {{-- @foreach ($errors->all() as $error)
+             @foreach ($errors->all() as $error)
                 <p> {{ $error }} </p>
-            @endforeach --}}
+            @endforeach 
         </div>
     @endif
         <main class="py-4">
@@ -101,4 +92,5 @@
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
-</html>
+</html> 
+
