@@ -1,7 +1,43 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Contexte du projet
+
+## Objectif :
+
+Nous recherchons un développeur talentueux pour développer une application web pour gérer le menu de restaurant YouCode . Les apprenants pourront visualiser les plats disponibles.
+
+## Fonctionnalités clés :
+
+Visualisation des plats disponibles sur le menu.
+Système d'authentification complet.
+Gestion du menu par l'administrateur (ajout, édition, suppression de plats)
+## Technologies requises :
+
+Laravel, HTML, CSS, JavaScript, PHP
+
+​
+
+## User stories:
+
+- En tant qu'administrateur, je peux créer un compte en utilisant mon adresse e-mail et un mot de passe sécurisé. <br/>
+- En tant qu'administrateur, je peux me connecter à mon compte existant en utilisant mon adresse e-mail et mon mot de passe. <br/>
+- En tant qu'administrateur, je peux réinitialiser mon mot de passe en utilisant mon adresse e-mail associée à mon compte. <br/>
+- En tant qu'administrateur, je peux modifier les informations de mon compte, telles que mon adresse e-mail et mon mot de passe, en tout temps. <br/>
+- En tant que visiteur, je peux visualiser les différents plats disponibles sur le menu avec des images et des descriptions claires. <br/>
+- En tant qu'administrateur, je peux ajouter, éditer ou supprimer des plats sur le menu en utilisant une interface simple et intuitive. <br/>
+## Remarques:
+
+N'oubliez pas de tenir compte des meilleures pratiques de développement web lors de la réalisation de ce projet. Assurez-vous également de fournir une documentation claire pour les utilisateurs et les administrateurs.
+
+**Durée du projet : **10 jours
+ <br/>
+_______________________________________________________________________________________________________________________________________________________
+
+
+
+
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
@@ -24,6 +60,8 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+
+You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
