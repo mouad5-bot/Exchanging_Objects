@@ -15,7 +15,17 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name')->nullable();
+            $table->text('description')->nullable();
+            $table->string('image');
+            $table->string('status');
+            $table->foreignId('category_id');
+            $table->foreignId('location_id');
+
+            $table->timestamps();            
+
+            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('location_id')->references('id')->on('locations');
         });
     }
 

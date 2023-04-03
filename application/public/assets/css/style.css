@@ -1,0 +1,29 @@
+.navbar{
+    background-color: #1cc7d0!important;
+}
+
+.nav{
+    background-color: black;
+    color: aqua;
+    display: flex;
+}
+
+ul li {
+    margin-left: 1rem;
+    list-style: none;
+    text-decoration: none;
+}
+
+ul li a{
+    text-decoration: none;
+}
+
+/*************** logo **************/
+#app .navbar .container img {
+    width: 10%;
+}
+
+/**************** profile ***************/
+.profilTitle h3 {
+    color: #4A274F;
+}

@@ -25,18 +25,29 @@ class UserController extends Controller
     { 
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6|confirmed'
+            'email' => 'required|email|unique:users'
         ]);
 
         $user->name = $request->input('name');
         $user->email = $request->input('email');
+
+        $user->save();
+
+        return back()
+            ->with('success', 'saved succesfuly');
+    }
+    public function updatePassword(User $user, Request $request )
+    { 
+        $request->validate([
+            'password' => 'required|min:6|confirmed'
+        ]);
+
         $user->password = bcrypt($request->input('password'));
 
         $user->save();
 
         return back()
-            ->with('success', 'bien enregistrer');
+            ->with('success', 'saved succesfuly');
     }
 
     
