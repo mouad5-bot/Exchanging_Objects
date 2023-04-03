@@ -16,11 +16,20 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->string('comment');            
-            $table->foreignId('product_id');
+            $table->unsignedBigInteger('product_id');
+            // $table->unsignedBigInteger('product_id');
+            $table->foreignId('user_id');
 
             $table->timestamps();
 
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_id')
+                  ->references('id')
+                  ->on('products')
+                  ->onDelete('cascade');
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users');    
+
         });
 
     }

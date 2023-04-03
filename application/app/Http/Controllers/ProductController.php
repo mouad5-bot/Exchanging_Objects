@@ -15,7 +15,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $plats = Product::all();
+        return view('home.plat', compact('plats'));
     }
 
     /**
