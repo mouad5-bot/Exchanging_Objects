@@ -50,15 +50,15 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
-    public function Products(){
+    public function products(){
         return $this->hasMany(Product::class);
     }
     
-    public function Notifications(){
+    public function notifications(){
         return $this->belongsToMany(User::class);
     }
 
-    public function Messages(){
+    public function messages(){
         return $this->belongsToMany(User::class);
     }
 

@@ -5,81 +5,70 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $plats = Product::all();
-        return view('home.plat', compact('plats'));
+        $products = Product::all();
+        return view('home', compact('products'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreProductRequest  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StoreProductRequest $request)
     {
-        //
+        
+        // dd($request->all());
+
+        $data = $request->validated();
+
+        $products = new Product;
+
+        $img = $request->file('image')->store('public/assets/images/products');
+        // $img =str_replace("public/assets/images/products", "storage/assets/images/products", $img);
+        $data['image'] =str_replace("public/assets/images/products", "storage/assets/images/products", $img);
+
+        // $products->name = $request->input('name');
+        // $products->description = $request->input('description');
+        // $products->image = $img; 
+        // $products->status = $request->input('status');
+        // $products->category_id = $request->input('category_id'); 
+        // $products->location_id = $request->input('location_id');
+
+        $user = Auth::user();
+        $product = $user->products()->create($data);
+        
+        // $products->user_id = $user->id;
+        // dd($product, $data);
+        
+        // dd($products);
+
+        // $products->save();
+
+        return back()
+        ->with('success', 'saved succsefuly');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function show(Product $product)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Product $product)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateProductRequest  $request
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function update(UpdateProductRequest $request, Product $product)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Product $product)
     {
         //

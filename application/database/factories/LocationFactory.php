@@ -16,8 +16,12 @@ class LocationFactory extends Factory
      */
     public function definition()
     {
-        return [
-            //
+        return [        
+            "name" => $this->faker->randomElement([    
+                "Yousoudia",
+                "Safi",
+                "Marrakech"
+            ]),
         ];
     }
 }

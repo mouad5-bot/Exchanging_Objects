@@ -10,11 +10,14 @@ use App\Models\User;
 
 
 
+Auth::routes();
 
-// Route::controller(HomeController::class)->group(function () {
-//     Route::get('/', 'index')->name('home');
-//     Route::get('/home', 'index')->name('home');
-// });
+// Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/', 'index')->name('home');
+    Route::get('/home', 'index')->name('home');
+});
 
 
 Route::get('users/profile/{user}', [UserController::class , 'show'])->name('users/profile');
@@ -30,6 +33,3 @@ Route::get('aboutus/about', function () {
 
 
 
-Auth::routes();
-
-Route::get('/', [HomeController::class, 'index'])->name('home');

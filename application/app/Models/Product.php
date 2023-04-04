@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 
-class Post extends Model
+class Product extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -24,6 +24,10 @@ class Post extends Model
 
     public function categories(){
         return $this->belongsTo(Category::class);
+    }
+
+    public function status(){
+        return $this->belongsTo(Status::class);
     }
 
     public function locations(){

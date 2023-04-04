@@ -4,10 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Category;
+use App\Models\Status;
 
-
-class CategorySeeder extends Seeder
+class StatusSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,6 +15,6 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        $categoryNames = Category::factory()->count(8)->create()->pluck('name');
+        $StatusNames = Status::factory()->count(3)->create()->pluck('name');
     }
 }
