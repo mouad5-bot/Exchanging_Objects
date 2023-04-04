@@ -53,39 +53,22 @@
     <hr>
 
         <div class="row">          
-            {{-- @foreach($products as $product)            
+            @foreach($products as $product)            
             <div class="col-sm-4">
                 <div class="card">
                     <div class="img-top">
-                        <img class="card-img-top" src="{{ asset("$product->products") }}" alt="book">
+                        <img class="card-img-top" src="{{ asset("$product->image") }}" alt="book">
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">{{ $product->description }}</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium reprehenderit quam quod explicabo! Possimus facilis vero quo, nostrum soluta officiis minus tempore optio ut dolorem, autem ex error. Necessitatibus, veritatis.</p>
+                        <h5 class="card-title">{{ $product->name }}</h5>
+                        <p class="card-text">{{$product->description}}</p>
                         <a href="#" class="btn btn-primary">Exchange now</a>
                     </div>
                 </div>
             </div>
-            @endforeach --}}
+            @endforeach
         </div>
     </div>
-    {{-- <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-                
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div> --}}
 </div>
 
     

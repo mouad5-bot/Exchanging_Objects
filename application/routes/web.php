@@ -12,24 +12,28 @@ use App\Models\User;
 
 Auth::routes();
 
-// Route::get('/', [HomeController::class, 'index'])->name('home');
-
+// -------------------------- main Home ----------------------//
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home');
     Route::get('/home', 'index')->name('home');
 });
 
-
+// -------------------------- User | Profile ----------------------//
 Route::get('users/profile/{user}', [UserController::class , 'show'])->name('users/profile');
 Route::get('users/profile/update', [UserController::class, 'update'])->name('users/profile/update');
 Route::post('users/profile/update', [UserController::class, 'update'])->name('users/profile/update');
 
-
+// -------------------------- Products ----------------------//
 Route::resource('products', ProductController::class);
 
+
+// -------------------------- Contat us ----------------------//
 Route::get('aboutus/about', function () {
     return view('aboutus.about');
 })->name('aboutus.about');
 
 
-
+// -------------------------- main dashboard ----------------------//
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/dashboard', 'index')->name('dashboard'); 
+});

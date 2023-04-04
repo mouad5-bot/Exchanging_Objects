@@ -6,13 +6,17 @@ use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class ProductController extends Controller
 {
     public function index()
     {
+        // $products = DB::table('products')->get(); 
+
         $products = Product::all();
-        return view('home', compact('products'));
+        return view('home',['products'=>$products]);
     }
 
     public function create()
@@ -22,33 +26,18 @@ class ProductController extends Controller
 
     public function store(StoreProductRequest $request)
     {
-        
-        // dd($request->all());
-
         $data = $request->validated();
 
         $products = new Product;
 
         $img = $request->file('image')->store('public/assets/images/products');
-        // $img =str_replace("public/assets/images/products", "storage/assets/images/products", $img);
         $data['image'] =str_replace("public/assets/images/products", "storage/assets/images/products", $img);
 
-        // $products->name = $request->input('name');
-        // $products->description = $request->input('description');
-        // $products->image = $img; 
-        // $products->status = $request->input('status');
-        // $products->category_id = $request->input('category_id'); 
-        // $products->location_id = $request->input('location_id');
+        // $img =str_replace("public/assets/images/products", "storage/assets/images/products", $img);
+
 
         $user = Auth::user();
         $product = $user->products()->create($data);
-        
-        // $products->user_id = $user->id;
-        // dd($product, $data);
-        
-        // dd($products);
-
-        // $products->save();
 
         return back()
         ->with('success', 'saved succsefuly');
@@ -56,7 +45,9 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
-        //
+        return view('products.show', [
+            'product' => $product,
+        ]);
     }
 
     public function edit(Product $product)
