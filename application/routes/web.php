@@ -14,13 +14,14 @@ Auth::routes();
 
 // -------------------------- main Home ----------------------//
 Route::controller(HomeController::class)->group(function () {
-    Route::get('/', 'index')->name('home');
+    Route::get('/', 'index')->name('home1');
     Route::get('/home', 'index')->name('home');
+    // Route::get('/users/profile', 'profile')->name('profile');   
 });
 
 // -------------------------- User | Profile ----------------------//
 Route::get('users/profile/{user}', [UserController::class , 'show'])->name('users/profile');
-Route::get('users/profile/update', [UserController::class, 'update'])->name('users/profile/update');
+// Route::get('users/profile/update', [UserController::class, 'update'])->name('users/profile/update');
 Route::post('users/profile/update', [UserController::class, 'update'])->name('users/profile/update');
 
 // -------------------------- Products ----------------------//

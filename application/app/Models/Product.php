@@ -4,6 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Category;
+use App\Models\User;
+use App\Models\Comment;
+use App\Models\Location;
+use App\Models\status;
+
 
 
 class Product extends Model
@@ -13,7 +19,7 @@ class Product extends Model
         'name',
         'description',
         'image',
-        'status',
+        'status_id',
         'category_id',
         'location_id'
     ];
@@ -23,11 +29,11 @@ class Product extends Model
     }
 
     public function categories(){
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
     public function status(){
-        return $this->belongsTo(Status::class);
+        return $this->belongsTo(Status::class, 'status_id');
     }
 
     public function locations(){

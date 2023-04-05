@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Product;
 
 class UserController extends Controller
 {
@@ -14,6 +15,38 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
+    
+    // public function index()
+    // {        
+    //     $products = Product::all();
+    //     return view('users/profile',['products'=>$products]);
+    // }
+
+    public function create()
+    {
+        //
+    }
+
+    public function store(Request $request)
+    {
+        //
+    }
+
+    public function show(User $user)
+    {
+        // $products = Product::all();
+        // $products = Product::with('categories')->get();
+        // $products = Product::with('categories', 'status')->get();
+
+        // $user = Auth::user();
+        // $products = $user->products()->get();
+
+        $user = Auth::user();
+        $products = $user->products()->with('categories', 'status')->get();
+
+        // dd($products);
+        return view('users/profile', ['products'=> $products]);
+    }
     
     public function edit(User $user)
     {   
@@ -50,26 +83,6 @@ class UserController extends Controller
             ->with('success', 'saved succesfuly');
     }
 
-    
-    // public function index()
-    // {
-    //     //
-    // }
-
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show(User $user)
-    {
-        return view('users/profile', ['user' => $user]);
-    }
 
     public function destroy($id)
     {

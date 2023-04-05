@@ -18,13 +18,14 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->text('description')->nullable();
             $table->string('image');
-            $table->string('status');
+            $table->foreignId('status_id');
             $table->foreignId('category_id');
             $table->foreignId('location_id');
             $table->foreignId('user_id');
 
             $table->timestamps();            
 
+            $table->foreign('status_id')->references('id')->on('statuses');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('location_id')->references('id')->on('locations');
             $table->foreign('user_id')->references('id')->on('users');

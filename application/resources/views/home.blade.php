@@ -113,7 +113,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Status</label>
-                            <select class="@error('status') error-border @enderror form-control" name="status" id="status">
+                            <select class="@error('status') error-border @enderror form-control" name="status_id" id="status">
                                 <option value="1">In progress</option>
                                 <option value="2">Accepted</option>
                                 <option value="3">Refused</option>

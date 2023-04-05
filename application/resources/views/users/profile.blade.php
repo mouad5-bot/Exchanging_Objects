@@ -18,31 +18,45 @@
           <h2>
             My Products
           </h2>
-          <hr class="w-25%" />
-          <form action="{{route('users/profile/update', Auth::user()->id ) }}" method="POST">
-            @csrf
-
-            
-        <div class="row">        
-          
-          {{-- @foreach($plats as $plat) --}}
-          
-          <div class="col-sm-4">
-              <div class="card">
-                  <div class="img-top">
-                      {{-- <img class="card-img-top" src="{{ asset("$plat->image") }}" alt="food"> --}}
-                  </div>
-                  <div class="card-body">
-                      <h5 class="card-title">Test</h5>
-                      <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium reprehenderit quam quod explicabo! Possimus facilis vero quo, nostrum soluta officiis minus tempore optio ut dolorem, autem ex error. Necessitatibus, veritatis.</p>
-                      <a href="#" class="btn btn-primary">Reserve Now</a>
-                  </div>
-              </div>
+          <hr class="w-25%" />        
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">image</th>
+                  <th scope="col">Name </th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Status</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>              
+                @foreach($products as $product)
+                @php
+                // echo($products);
+                // die;    
+                @endphp
+                
+                  <tr id="{{ $product->id }}">
+                    <th scope="row"> {{ $product->id }}</th>
+                    <td> <img src="{{ asset("$product->image") }}" alt="{{ $product->category }}" style=width:3rem; > </td>
+                    <td> {{ $product->name }}</td>
+                    <td> {{ $product->categories->name }} </td>
+                    <td> {{ $product->status->name }}</td>
+                    <td>
+                      <button type="button" onclick="getdataArticl()"
+                      data-bs-target="#modal-edit-post" data-bs-toggle="modal"
+                      class="btn btn-outline-info">Edit</button>
+                      
+        
+                      <a href="#"><button type="button" onclick="deleteArticl()"  class="btn btn-outline-danger">Delete</button></a>
+                    </td>
+                  </tr>
+                @endforeach
+              </tbody>
+            </table>
           </div>
-          {{-- @endforeach --}}
-      </div>
-
-          </form>
         </div>
       </div>
     </div>
@@ -67,7 +81,7 @@
                         class="form-control"
                         name="name"
                         id="name"
-                        value="{{ $user->name }}"
+                        value="{{ Auth::user()->name }}"
                     />
                 </div>
               </div>
@@ -80,7 +94,7 @@
                         class="form-control"
                         name="email"
                         id="email"
-                        value="{{ $user->email }}"
+                        value="{{ Auth::user()->email }}"
                     />
                 </div>   
               </div>
