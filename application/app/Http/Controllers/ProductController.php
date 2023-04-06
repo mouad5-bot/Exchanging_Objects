@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -50,9 +51,12 @@ class ProductController extends Controller
         ]);
     }
 
-    public function edit(Product $product)
-    {
-        //
+    public function edit($id)
+    {   
+        $products = Product::with('categories', 'status', 'locations')->findOrFail($id);
+        // $categories = Category::class;
+
+        return view('users.editProduct', ['product' => $products]);
     }
 
     public function update(UpdateProductRequest $request, Product $product)

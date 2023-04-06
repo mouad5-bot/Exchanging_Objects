@@ -21,18 +21,15 @@ Route::controller(HomeController::class)->group(function () {
 
 // -------------------------- User | Profile ----------------------//
 Route::get('users/profile/{user}', [UserController::class , 'show'])->name('users/profile');
-// Route::get('users/profile/update', [UserController::class, 'update'])->name('users/profile/update');
 Route::post('users/profile/update', [UserController::class, 'update'])->name('users/profile/update');
 
 // -------------------------- Products ----------------------//
 Route::resource('products', ProductController::class);
 
-
-// -------------------------- Contat us ----------------------//
+// -------------------------- About us ----------------------//
 Route::get('aboutus/about', function () {
     return view('aboutus.about');
 })->name('aboutus.about');
-
 
 // -------------------------- main dashboard ----------------------//
 Route::controller(HomeController::class)->group(function () {

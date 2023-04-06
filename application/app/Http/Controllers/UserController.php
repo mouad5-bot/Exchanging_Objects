@@ -32,15 +32,8 @@ class UserController extends Controller
         //
     }
 
-    public function show(User $user)
+    public function show($user)
     {
-        // $products = Product::all();
-        // $products = Product::with('categories')->get();
-        // $products = Product::with('categories', 'status')->get();
-
-        // $user = Auth::user();
-        // $products = $user->products()->get();
-
         $user = Auth::user();
         $products = $user->products()->with('categories', 'status')->get();
 

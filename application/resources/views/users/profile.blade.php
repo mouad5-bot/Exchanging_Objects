@@ -31,29 +31,26 @@
                   <th scope="col"></th>
                 </tr>
               </thead>
-              <tbody>              
-                @foreach($products as $product)
-                @php
-                // echo($products);
-                // die;    
-                @endphp
-                
-                  <tr id="{{ $product->id }}">
-                    <th scope="row"> {{ $product->id }}</th>
-                    <td> <img src="{{ asset("$product->image") }}" alt="{{ $product->category }}" style=width:3rem; > </td>
-                    <td> {{ $product->name }}</td>
-                    <td> {{ $product->categories->name }} </td>
-                    <td> {{ $product->status->name }}</td>
-                    <td>
-                      <button type="button" onclick="getdataArticl()"
-                      data-bs-target="#modal-edit-post" data-bs-toggle="modal"
-                      class="btn btn-outline-info">Edit</button>
-                      
-        
-                      <a href="#"><button type="button" onclick="deleteArticl()"  class="btn btn-outline-danger">Delete</button></a>
-                    </td>
-                  </tr>
-                @endforeach
+              <tbody>
+                  @foreach($products as $product)                   
+                    <form action="{{ route("products.edit", $product->id)}}" method="GET" id="form" enctype="multipart/form-data">  
+                      <tr id="{{ $product->id }}">
+                        <th scope="row"> {{ $product->id }}</th>
+                        <td> <img src="{{ asset("$product->image") }}" alt="{{ $product->category }}" style=width:3rem; > </td>
+                        <td> {{ $product->name }}</td>
+                        <td> {{ $product->categories->name }} </td>
+                        <td> {{ $product->status->name }}</td>
+                        <td>
+                          <button type="submit" onclick="getdataProduct()"
+                          data-bs-target="#modal-edit-product" data-bs-toggle="modal"
+                          class="btn btn-outline-info">Edit</button>
+                          
+            
+                          <button type="submit" onclick="deleteProduct()"  class="btn btn-outline-danger">Delete</button>
+                        </td>
+                      </tr>
+                    </form>
+                  @endforeach
               </tbody>
             </table>
           </div>
@@ -109,7 +106,7 @@
                 </button>
               </div>  
             </div>
-          </form>
+          </>
         </div>
       </div>
     </div>
@@ -203,5 +200,4 @@
     </div>
   </div>
 </div>
-
-@endsection
+@endsection 
