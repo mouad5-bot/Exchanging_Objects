@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Category;
+use App\Models\Location;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -54,9 +55,15 @@ class ProductController extends Controller
     public function edit($id)
     {   
         $products = Product::with('categories', 'status', 'locations')->findOrFail($id);
-        // $categories = Category::class;
+        $categories = Category::all();
+        $locations = Location::all();
 
-        return view('users.editProduct', ['product' => $products]);
+
+        return view('users.editProduct', [
+            'product' => $products,
+            'categories' => $categories,
+            'locations' => $locations,
+        ]);
     }
 
     public function update(UpdateProductRequest $request, Product $product)

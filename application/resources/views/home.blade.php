@@ -56,14 +56,16 @@
             @foreach($products as $product)            
             <div class="col-sm-4">
                 <div class="card">
-                    <div class="img-top">
-                        <img class="card-img-top" src="{{ asset("$product->image") }}" alt="book">
+                    <div class="mt-3 product_image_border">
+                        <img class="card-img-top product-image" src="{{ asset("$product->image") }}" alt="book">
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">{{ $product->name }}</h5>
-                        <p class="card-text">{{$product->description}}</p>
-                        <a href="#" class="btn btn-primary">Exchange now</a>
+                        <h5 class="card-title"> <b> {{ $product->name }} </b></h5>
+                        {{-- <p class="card-text">{{$product->description}}</p> --}}
+                        <p class="card-text" title="{{$product->description}}">{{ \Illuminate\Support\Str::limit($product->description, $limit = 40, $end = '...') }}</p>
+                        <a href="#" class="btn btn-info text-white">Exchange now</a>
                     </div>
+                    <input type="text">
                 </div>
             </div>
             @endforeach
