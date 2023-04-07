@@ -12,11 +12,7 @@
 // echo"</pre>";
 //   die;    
 @endphp
-
-
-
-
-<div class="card w-75 m-auto">
+<div class="card w-50 m-auto">
 	<div class="card-header">
 		<div class="modal-header">
 			<h5 class="modal-title">Edit Product</h5>

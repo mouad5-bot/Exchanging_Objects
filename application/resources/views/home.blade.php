@@ -47,7 +47,7 @@
             <u>List of Products :</u> 
         </div>
         <div class="">
-            <a href="#modal" data-bs-toggle="modal"  class="btn btn-success btn-rounded px-4 rounded-pill">Add Product</a>
+            <button class="addProductButton btn-rounded  rounded-pill"><a href="#modal" data-bs-toggle="modal" type="button"  class="btn-rounded px-4 rounded-pill">Add Product</a></button>
         </div>
     </div>
     <hr>

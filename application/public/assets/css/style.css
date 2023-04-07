@@ -73,3 +73,15 @@ ul li a {
 .icon-404{
     font-size: 5rem;    
 }
+
+/**************************** home ****************************/
+.addProductButton a{
+    text-decoration: none;
+    color: white;
+}
+
+.addProductButton{
+    background-color: #0087F6;
+    border: #0087F6;
+    padding: .5rem 0rem .5rem 0rem;
+}
