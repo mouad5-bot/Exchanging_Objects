@@ -14,7 +14,7 @@ Auth::routes();
 
 // -------------------------- main Home ----------------------//
 Route::controller(HomeController::class)->group(function () {
-    Route::get('/', 'index')->name('home1');
+    Route::get('/', 'index')->name('home');
     Route::get('/home', 'index')->name('home');
     // Route::get('/users/profile', 'profile')->name('profile');   
 });

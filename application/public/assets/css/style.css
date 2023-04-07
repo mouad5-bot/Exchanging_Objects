@@ -1,3 +1,7 @@
+* {
+     box-sizing: border-box; /* how the total width and height of an HTML element is calculated. */
+    font-family: Arial, sans-serif;
+  }
 /*****************  navbar ******************/
 .navbar {
     background-color: #fafafa!important;
@@ -12,12 +16,12 @@
 nav li a:hover:not(.active) {
     background-color: #0087F6;
     color: white;
-    /* border-radius: 10%; */
+    border-radius: 5%;
   }
   
 .active {
     /* background-color: #2dde98; */
-    border-radius: 10%;color: white!important;
+    border-radius: 10%;color: #0087F6!important;
 }
 
 ul li {
@@ -49,8 +53,8 @@ ul li a {
 }
 
 .logo-img img{
-    width: 7rem;
-    height: 3rem;
+    width: 9rem;
+    height: 2.5rem;
 }
 
 /*********** errors *************/
@@ -64,4 +68,8 @@ ul li a {
 
 .flash-error{
     color: red;
+}
+
+.icon-404{
+    font-size: 5rem;    
 }

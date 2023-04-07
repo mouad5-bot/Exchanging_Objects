@@ -52,9 +52,9 @@
     </div>
     <hr>
 
-        <div class="row">          
+        <div class="row">
             @foreach($products as $product)            
-            <div class="col-sm-4">
+            <div class="col-sm-4 mt-4">
                 <div class="card">
                     <div class="mt-3 product_image_border">
                         <img class="card-img-top product-image" src="{{ asset("$product->image") }}" alt="book">
@@ -65,7 +65,6 @@
                         <p class="card-text" title="{{$product->description}}">{{ \Illuminate\Support\Str::limit($product->description, $limit = 40, $end = '...') }}</p>
                         <a href="#" class="btn btn-info text-white">Exchange now</a>
                     </div>
-                    <input type="text">
                 </div>
             </div>
             @endforeach
