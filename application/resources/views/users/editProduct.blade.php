@@ -99,7 +99,7 @@
 					    </div>
 					  <div class="modal-footer">
 						<a href="{{route('users/profile', $product->id)}}" type="button" class="btn btn-light me-2">Cancel</a>
-						<button type="submit" name="update"   class="btn btn-warning" id="update-btn">Update</button>
+						<button type="submit" name="update" onclick="updateProduct()"  class="btn btn-warning" id="update-btn">Update</button>
 					  </div>
 					</form>
 				</div>
