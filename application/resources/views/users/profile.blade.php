@@ -25,7 +25,7 @@
           </div>
           <hr class="w-25%" />        
           <div class="table-responsive">
-            <table class="table">
+            <table class="table" id="myTable">
               <thead>
                 <tr>
                   <th scope="col">#</th>
@@ -39,7 +39,8 @@
               </thead>
               <tbody>
                   @foreach($products as $product)                   
-                    <form action="{{ route("products.edit", $product->id)}}" method="GET" id="form" enctype="multipart/form-data">  
+                    
+                      @csrf
                       <tr id="{{ $product->id }}">
                         <th scope="row"> {{ $product->id }}</th>
                         <td> <img src="{{ asset("$product->image") }}" alt="{{ $product->category }}" style=width:3rem; > </td>
@@ -47,16 +48,21 @@
                         <td> {{ $product->categories->name }} </td>
                         <td> {{ $product->locations->name }} </td>
                         <td> {{ $product->status->name }}</td>
-                        <td>
-                          <button type="submit" onclick="getdataProduct()"
-                          data-bs-target="#modal-edit-product" data-bs-toggle="modal"
-                          class="btn btn-outline-info">Edit</button>
-                          
-            
-                          <button type="submit" onclick="deleteProduct()"  class="btn btn-outline-danger">Delete</button>
+                          <td class="d-flex">
+                            <div class="me-3">
+                              <form action="{{ route("products.edit", $product->id)}}" method="GET">  
+                                @csrf 
+                                <button type="submit" onclick="getdataProduct()"
+                                class="btn btn-outline-info">Edit</button>     
+                              </form>
+                            </div>
+                              <form action="{{ route("products.destroy", $product->id)}}" method="POST" id="form">  
+                                @csrf
+                                @method('DELETE')
+                                    <button type="submit" onclick="deleteProduct()"  class="btn btn-outline-danger">Delete</button>
+                              </form>
                         </td>
                       </tr>
-                    </form>
                   @endforeach
               </tbody>
             </table>

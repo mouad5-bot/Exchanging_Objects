@@ -52,10 +52,6 @@ ul li a {
     border-radius: 1rem;
 }
 
-.logo-img img{
-    width: 9rem;
-    height: 2.5rem;
-}
 
 /*********** errors *************/
 .error{
@@ -80,8 +76,24 @@ ul li a {
     color: white;
 }
 
+.logo-img img{
+    width: 9rem;
+    height: 2.5rem;
+}
+
 .addProductButton{
     background-color: #0087F6;
     border: #0087F6;
     padding: .5rem 0rem .5rem 0rem;
+}
+
+.dataTables input {
+    border: 1rem solid #0087F6 ;
+    color: blue;
+}
+.dataTables thead th{
+    border: 1rem solid #0087F6 ;
+    color: blue;
+    background-color: #0087F6;
+    margin-top: 5rem;
 }
