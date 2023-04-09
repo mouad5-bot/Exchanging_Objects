@@ -69,9 +69,7 @@ class ProductController extends Controller
 
     public function update(UpdateProductRequest $request, Product $product)
     {
-        $categories = Category::all();
-        $locations = Location::all();
-        $statuses = Status::all();
+        // dd($request->all());
 
         $data = $request->validated();
 

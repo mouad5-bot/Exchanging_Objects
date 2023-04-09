@@ -9,6 +9,22 @@
 
 {{-- {{dd($product);}}  --}}
 
+@if(session('error'))
+	@section('script')
+	<script>
+		const notyf = new Notyf({
+				duration: 5000,
+				position: {
+				x: 'right',
+				y: 'top',
+				}
+			}) 
+		notyf.error('{{ session('error')}}');
+	</script>
+	<div id="error-session"></div>
+	@endsection
+@endif
+
 <div class="card w-50 m-auto">
 	<div class="card-header">
 		<div class="modal-header">
@@ -53,7 +69,7 @@
 						  </div>
 						  <div class="mb-3">
 							  <label class="form-label">Status</label>
-							  <select class="@error('status') error-border @enderror form-control" name="status" id="status">
+							  <select class="@error('status') error-border @enderror form-control" name="status_id" id="status">
 							  @foreach($statuses as $status)
 								<option value="{{ $status->id }}" {{ $product->status_id == $status->id ? 'selected' : '' }}>
 								  {{ $status->name }}
@@ -68,7 +84,7 @@
 						  </div>
 						  <div class="mb-3">
 							  <label class="form-label">Category</label>
-							  <select class="@error('category') error-border @enderror form-control" name="category" id="category">
+							  <select class="@error('category') error-border @enderror form-control" name="category_id" id="category">
 								<option value=""> choose ....</option>
 								@foreach($categories as $category)
 									<option value={{$category->id}} {{ $product->category_id == $category->id ? 'selected' : '' }}>
@@ -84,7 +100,7 @@
 						  </div>
 						  <div class="mb-3">
 							  <label class="form-label">Your Location</label>
-							  <select class="@error('location') error-border @enderror form-control" name="location" id="location">
+							  <select class="@error('location') error-border @enderror form-control" name="location_id" id="location">
 									@foreach($locations as $location)
 										<option value="{{$location->id}}" {{$product->location_id == $location->id ? 'selected' : ''}} >{{ $location->name }}</option>
 									@endforeach
