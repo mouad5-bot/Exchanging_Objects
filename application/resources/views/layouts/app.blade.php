@@ -22,7 +22,6 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light shadow-sm" fixed-top>
-            {{-- <div class="container"> --}}
                 <a class="navbar-brand logo-img ms-5 mt-2" href="{{ url('/') }}">
                    <img src="{{ asset('assets/images/logo.png') }}"  alt="Ntbadlo | Exchange">
                 </a>
@@ -73,7 +72,6 @@
                         @endguest
                     </ul>
                 </div>
-            {{-- </div> --}}
         </nav>
 
         @if ($errors->any())

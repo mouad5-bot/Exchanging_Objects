@@ -6,12 +6,9 @@
 
 @section('content')
 {{-- ========================================== modal - Update =========================================-- --}}    
-@php
-// echo"<pre>";
-//   echo($product);
-// echo"</pre>";
-//   die;    
-@endphp
+
+{{-- {{dd($product);}}  --}}
+
 <div class="card w-50 m-auto">
 	<div class="card-header">
 		<div class="modal-header">
@@ -25,6 +22,7 @@
 				<div class="modal-content">
 					<form action="{{ route('products.update', $product )}}" method="POST" id="form" enctype="multipart/form-data">
 					  @csrf
+					  @method('PUT')
 					  <div class="modal-body">
 						  <div class="mb-3">
 							  <label class="form-label">name</label>
@@ -55,10 +53,12 @@
 						  </div>
 						  <div class="mb-3">
 							  <label class="form-label">Status</label>
-							  <select class="@error('status') error-border @enderror form-control" name="status_id" id="status" value="{{ $product->status->name }}">
-								  <option value="1">In progress</option>
-								  <option value="2">Accepted</option>
-								  <option value="3">Refused</option>
+							  <select class="@error('status') error-border @enderror form-control" name="status" id="status">
+							  @foreach($statuses as $status)
+								<option value="{{ $status->id }}" {{ $product->status_id == $status->id ? 'selected' : '' }}>
+								  {{ $status->name }}
+								</option>
+							  @endforeach
 							  </select>
 							  @error('status')
 								  <div class="error">
@@ -68,9 +68,12 @@
 						  </div>
 						  <div class="mb-3">
 							  <label class="form-label">Category</label>
-							  <select class="@error('category') error-border @enderror form-control" name="category_id" id="category">
+							  <select class="@error('category') error-border @enderror form-control" name="category" id="category">
+								<option value=""> choose ....</option>
 								@foreach($categories as $category)
-								  <option value={{$category->id}}>{{$category->name}}</option>
+									<option value={{$category->id}} {{ $product->category_id == $category->id ? 'selected' : '' }}>
+										{{$category->name}}
+									</option>
 								@endforeach
 							  </select>
 							  @error('category')
@@ -81,10 +84,9 @@
 						  </div>
 						  <div class="mb-3">
 							  <label class="form-label">Your Location</label>
-							  <select class="@error('location') error-border @enderror form-control" name="location_id" id="location">
-									<option value={{$product->locations->id}}>{{ $product->locations->name }}</option>
+							  <select class="@error('location') error-border @enderror form-control" name="location" id="location">
 									@foreach($locations as $location)
-										<option value={{$location->id}}>{{ $location->name }}</option>
+										<option value="{{$location->id}}" {{$product->location_id == $location->id ? 'selected' : ''}} >{{ $location->name }}</option>
 									@endforeach
 							  </select>
 							  @error('location')

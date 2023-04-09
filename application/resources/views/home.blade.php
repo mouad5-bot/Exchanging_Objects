@@ -7,16 +7,22 @@
     </div>
 
       <br> --}}
+
+
+      {{-- {{dd($categories);}} --}}
+{{-- {{dd($products);}} --}}
+{{-- {{dd($locations);}} --}}
+
     <form action="" method="get" class="form-inline">
         <div class="row">  
             <div class="col-md-4">
                 <label for="">Filter by categories</label>
                 <div class="form-group">
                     <select class="form-control" name="category">
-                        <option value="">All Categories</option>
-                        <option value="1">Category 1</option>
-                        <option value="2">Category 2</option>
-                        <option value="3">Category 3</option>
+                        <option>choose the category</option>
+                        @foreach($categories as $category)
+                            <option value={{$category->id}}>{{ $category->name }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>            
@@ -24,10 +30,10 @@
                 <label for="">Filter by cities</label>
                 <div class="form-group">
                     <select class="form-control" name="city">
-                        <option value="">All Cities</option>
-                        <option value="1">City 1</option>
-                        <option value="2">City 2</option>
-                        <option value="3">City 3</option>
+                        <option>Choose the City</option>
+                        @foreach($locations as $location)
+                            <option value={{$location->id}}>{{ $location->name }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
@@ -115,9 +121,10 @@
                         <div class="mb-3">
                             <label class="form-label">Status</label>
                             <select class="@error('status') error-border @enderror form-control" name="status_id" id="status">
-                                <option value="1">In progress</option>
-                                <option value="2">Accepted</option>
-                                <option value="3">Refused</option>
+                                <option value="1">select the status of this product</option>
+                                @foreach($statuses as $status)
+                                    <option value={{$status->id}}>{{ $status->name }}</option>
+                                @endforeach
                             </select>
                             @error('status')
                                 <div class="error">
@@ -128,14 +135,10 @@
                         <div class="mb-3">
                             <label class="form-label">Category</label>
                             <select class="@error('category') error-border @enderror form-control" name="category_id" id="category">
-                                <option value=1>Book</option>
-                                <option value=2>Electronics</option>
-                                <option value=3>Clothing</option>
-                                <option value=4>Accessories</option>
-                                <option value=5>Games</option>
-                                <option value=6>Sports</option>
-                                <option value=7>Music</option>
-                                <option value=8>Art</option>
+                                <option>select the category of this product</option>
+                                @foreach($categories as $category)
+                                    <option value={{$category->id}}>{{ $category->name }}</option>
+                                @endforeach
                             </select>
                             @error('category')
                                 <div class="error">
@@ -146,9 +149,10 @@
                         <div class="mb-3">
                             <label class="form-label">Your Location</label>
                             <select class="@error('location') error-border @enderror form-control" name="location_id" id="location">
-                                <option value=1>Youssoufia</option>
-                                <option value=2>Safi</option>
-                                <option value=3>Marrakech</option>
+                                <option>Choose your location</option>
+                                @foreach($locations as $location)
+                                    <option value={{$location->id}}>{{ $location->name }}</option>
+                                @endforeach
                             </select>
                             @error('location')
                                 <div class="error">

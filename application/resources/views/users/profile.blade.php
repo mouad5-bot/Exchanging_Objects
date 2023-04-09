@@ -15,7 +15,7 @@
     <div class="col-lg-12">
       <div class="card m-3">
         <div class="card-body">
-          <div class="d-flex justify-content-between mt-5">
+          <div class="d-flex justify-content-between mt-3">
               <div class='h3'>
                   <u>List of My Products :</u> 
               </div>
