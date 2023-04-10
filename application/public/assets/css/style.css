@@ -120,3 +120,13 @@ ul li a {
     left: auto;
     right: 10px;
 }
+
+/***************** annimation *******************/
+.scale {
+    transition: transform .4s ease-in-out;
+  }
+  
+  .scale:hover{
+    transition: transform .4s ease-in-out;
+    transform: scale(1.3);
+  }

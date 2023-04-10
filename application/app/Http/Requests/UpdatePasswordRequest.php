@@ -13,7 +13,7 @@ class UpdatePasswordRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,9 @@ class UpdatePasswordRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
+        return [            
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed',
         ];
     }
 }

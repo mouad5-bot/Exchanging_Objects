@@ -69,7 +69,10 @@
                         <h5 class="card-title"> <b> {{ $product->name }} </b></h5>
                         {{-- <p class="card-text">{{$product->description}}</p> --}}
                         <p class="card-text" title="{{$product->description}}">{{ \Illuminate\Support\Str::limit($product->description, $limit = 40, $end = '...') }}</p>
-                        <a href="#" class="btn btn-info text-white">Exchange now</a>
+                        <div class="d-flex justify-content-center">
+                          <a href="#" class="btn btn-info object scale text-white me-1"> <span><i class="bi bi-arrow-down-up me-1"></i></span> Exchange now</a>
+                          <a href="#" class="btn btn-info object scale text-white"> <span> <i class="bi bi-messenger"></i> </span> Send message </a>
+                        </div>
                     </div>
                 </div>
             </div>

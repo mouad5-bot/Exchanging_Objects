@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdatePasswordRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateUserNameRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Product;
+use Illuminate\Support\Facades\Hash;
+
 
 class UserController extends Controller
 {
@@ -61,14 +64,18 @@ class UserController extends Controller
     }
 
 
-    public function updatePassword(Request $request, User $user)
-    {         
+    public function updatePassword(UpdatePasswordRequest $request, User $user)
+    {  
+        $data = $request->validated();
+       
+        // dd($data);
+        #Match The Old Password
+        if(!Hash::check($request->old_password, auth()->user()->password)){
+            return back()->with("error", "Old Password Doesn't match!");
+        }
+        
         #Update the new Password
-        User::whereId(auth()->user()->id)->update([
-            'password' => Hash::make($request->new_password)
-        ]);
-
-        // $user->password = bcrypt($request->input('password'));
+        User::whereId(auth()->user()->id)->update(['password' => Hash::make($data['new_password'])]);
 
         return back()
             ->with('success', 'Password has been changed successfully!');

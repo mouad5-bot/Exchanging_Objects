@@ -9,6 +9,17 @@
 <div class="profilTitle m-4 text-center">
   <h3 > Welcome in you Profile {{ Auth::user()->name }} ! </h3> 
 </div>
+<div>
+  @if (session('status'))
+    <div class="alert alert-success" role="alert">
+      {{ session('status') }}
+    </div>
+  @elseif (session('error'))
+      <div class="alert alert-danger" role="alert">
+        {{ session('error') }}
+      </div>
+  @endif
+</div>
 
 <div class="container-fluid">
   <div class="row">
@@ -84,7 +95,6 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="mb-4">
-                    {{-- <input type="hidden" name="id"> --}}
                     <label class="form-label">Your Name </label>
                     <input
                         type="text"
