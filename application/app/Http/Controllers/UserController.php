@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdateUserNameRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Product;
@@ -47,35 +48,31 @@ class UserController extends Controller
         return view('users.edit', compact('user'));
     }
 
-    public function update(User $user, Request $request )
+    public function update(UpdateUserNameRequest $request, User $user)
     { 
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users'
-        ]);
+        $data = $request->validated();
 
-        $user->name = $request->input('name');
-        $user->email = $request->input('email');
-
-        $user->save();
+        $user = Auth::user();
+        
+        $user->update($data);
 
         return back()
-            ->with('success', 'saved succesfuly');
+            ->with('success', 'Your name has been changed succssefully');
     }
-    public function updatePassword(User $user, Request $request )
-    { 
-        $request->validate([
-            'password' => 'required|min:6|confirmed'
+
+
+    public function updatePassword(Request $request, User $user)
+    {         
+        #Update the new Password
+        User::whereId(auth()->user()->id)->update([
+            'password' => Hash::make($request->new_password)
         ]);
 
-        $user->password = bcrypt($request->input('password'));
-
-        $user->save();
+        // $user->password = bcrypt($request->input('password'));
 
         return back()
-            ->with('success', 'saved succesfuly');
+            ->with('success', 'Password has been changed successfully!');
     }
-
 
     public function destroy($id)
     {

@@ -87,7 +87,7 @@ ul li a {
     padding: .5rem 0rem .5rem 0rem;
 }
 
-.dataTables input {
+/* .dataTables input {
     border: 1rem solid #0087F6 ;
     color: blue;
 }
@@ -96,4 +96,27 @@ ul li a {
     color: blue;
     background-color: #0087F6;
     margin-top: 5rem;
+} */
+
+/* dataTables Search input box */
+ 
+.dataTables_filter {
+    position: relative;
+}
+
+.dataTables_filter input {
+    width: 250px;
+    height: 32px;
+    background: #fcfcfc;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    text-indent: 10px;
+}
+
+.dataTables_filter .fa-search {
+    position: absolute;
+    top: 10px;
+    left: auto;
+    right: 10px;
 }

@@ -97,7 +97,7 @@
     <script>
         // let table = new DataTable('#myTable');
             $(document).ready( function () {
-        $('#myTable').DataTable();
+        $('#myTable').DataTable();  
     } );
     </script>
     @yield('script')

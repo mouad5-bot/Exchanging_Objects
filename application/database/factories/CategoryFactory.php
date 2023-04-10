@@ -20,7 +20,7 @@ class CategoryFactory extends Factory
                 "games",
                 "sports",
                 "music",
-                "art",
+                "art",²
             ]),
         ];
     }

@@ -84,15 +84,19 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="mb-4">
-                    <input type="hidden" name="id">
+                    {{-- <input type="hidden" name="id"> --}}
                     <label class="form-label">Your Name </label>
                     <input
                         type="text"
-                        class="form-control"
+                        class="@error('name') error-border @enderror form-control"
                         name="name"
-                        id="name"
                         value="{{ Auth::user()->name }}"
                     />
+                    @error('name')
+                      <div class="error">
+                          {{ $message }}
+                      </div>
+                    @enderror
                 </div>
               </div>
 
@@ -103,10 +107,10 @@
                         type="email"
                         class="form-control"
                         name="email"
-                        id="email"
                         value="{{ Auth::user()->email }}"
+                        disabled
                     />
-                </div>   
+                </div>    
               </div>
               <div>
                 <button
@@ -119,7 +123,7 @@
                 </button>
               </div>  
             </div>
-          </>
+          </form>
         </div>
       </div>
     </div>
@@ -129,26 +133,37 @@
       <div class="card m-3">
         <div class="card-body">
           <h2>
-            Edit Password
+            Change Password
           </h2>
           <hr class="w-25%" />
-          <form action="{{route('users/profile/update', Auth::user()->id ) }}" method="POST">
-            {{-- {{ csrf_field() }} --}}
+          <form action="{{ route('changePassword')}}" method="POST">
             @csrf
-            {{-- {{ method_field('patch') }} --}}
 
+            <div class="container">
+              <label for="oldPasswordInput" class="form-label">Old Password</label>
+              <input name="old_password" type="password" class="@error('old_password') error-border @enderror  form-control" id="oldPasswordInput">
+              @error('old_password')
+              <div class="error">
+                  {{ $message }}
+              </div>
+              @enderror 
+            </div>
             <div class="row">
               <div class="col-md-6">
                 <div class="mb-4">
                     <label class="form-label" 
-                        >password</label
-                    >
+                        >New password
+                    </label>
                     <input
                         type="password"
-                        class="form-control"
-                        name="password"
-                        id="password"
+                        class="@error('password') error-border @enderror form-control"
+                        name="new_password"
                     />
+                    @error('password')
+                      <div class="error">
+                          {{ $message }}
+                      </div>
+                    @enderror
                 </div>
               </div>
 
@@ -159,10 +174,14 @@
                     >
                     <input
                         type="password"
-                        class="form-control"
-                        name="conferm_password"
-                        id="conferm-password"
+                        class="@error('password') error-border @enderror form-control"
+                        name="new_password_confirmation"
                     />
+                    @error('password')
+                    <div class="error">
+                        {{ $message }}
+                    </div>
+                  @enderror
                 </div>    
               </div>
               <div>

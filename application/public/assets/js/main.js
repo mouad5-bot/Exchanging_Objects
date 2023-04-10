@@ -26,3 +26,15 @@
 // 	sessionStorage.removeItem('error');
 //   }
   
+//remove the default 'Search' text for all DataTable search boxes
+// $.extend(true, $.fn.dataTable.defaults, {
+// 	language: {
+// 		search: ""
+// 	}
+// });
+
+//custom format of Search boxes
+// $('[type=search]').each(function () {
+// 	$(this).attr("placeholder", "Search...");
+// 	$(this).before('<span class="fa fa-search"></span>');
+// });

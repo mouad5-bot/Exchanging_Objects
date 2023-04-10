@@ -41,7 +41,7 @@ class ProductController extends Controller
         $product = $user->products()->create($data);
 
         return back()
-        ->with('success', 'saved succsefuly');
+        ->with('success', 'Your product has been added succssefully');
     }
 
     public function show(Product $product)
@@ -89,7 +89,7 @@ class ProductController extends Controller
         $product->update($data);
 
         // return  redirect()->route('users/profile')->with('success', 'Product updated successfully');
-        return redirect()->route('users/profile', $user)->with('success', 'Product updated successfully');
+        return redirect()->route('users/profile', $user)->with('success', 'Product has been  updated successfully');
 
     }
 
