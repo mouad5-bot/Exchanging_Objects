@@ -54,7 +54,7 @@
                       @csrf
                       <tr id="{{ $product->id }}">
                         <th scope="row"> {{ $product->id }}</th>
-                        <td> <img src="{{ asset("$product->image") }}" alt="{{ $product->category }}" style=width:3rem; > </td>
+                        <td> <img src="{{ asset("$product->image") }}" alt="{{ $product->category }}" style=width:2rem; > </td>
                         <td> {{ $product->name }}</td>
                         <td> {{ $product->categories->name }} </td>
                         <td> {{ $product->locations->name }} </td>

@@ -15,6 +15,15 @@ class StatusSeeder extends Seeder
      */
     public function run()
     {
-        $StatusNames = Status::factory()->count(3)->create()->pluck('name');
+        // $StatusNames = Status::factory()->count(3)->create()->pluck('name');
+        $data =[
+            ['id' => 1, 'name' => 'In Progress'],
+            ['id' => 2, 'name' => 'Accepted'],
+            ['id' => 3, 'name' => 'Refused']
+        ];
+
+        foreach ($data as $status){
+            Status::create($status);
+        };
     }
 }
