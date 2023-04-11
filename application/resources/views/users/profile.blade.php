@@ -31,12 +31,12 @@
                   <u>List of My Products :</u> 
               </div>
               <div class="">
-                <button class="addProductButton btn-rounded  rounded-pill"><a href="#modal" data-bs-toggle="modal" type="button"  class="btn-rounded px-4 rounded-pill">Add Product</a></button>
+                <button class="addProductButton btn-rounded  rounded-pill"><a href="#modal" data-bs-toggle="modal" type="button"  class="btn-rounded px-4 rounded-pill"><i class="bi bi-plus"></i>Add Product</a></button>
               </div>
           </div>
-          <hr class="w-25%" />        
+          <hr class="mb-3" />        
           <div class="table-responsive">
-            <table class="table" id="myTable">
+            <table class="table mt-5 mb-3" id="myTable">
               <thead>
                 <tr>
                   <th scope="col">#</th>
@@ -59,19 +59,24 @@
                         <td> {{ $product->categories->name }} </td>
                         <td> {{ $product->locations->name }} </td>
                         <td> {{ $product->status->name }}</td>
-                          <td class="d-flex">
+                          <td class="d-flex justify-content-center">
                             <div class="me-3">
                               <form action="{{ route("products.edit", $product->id)}}" method="GET">  
                                 @csrf 
                                 <button type="submit" onclick="getdataProduct()"
-                                class="btn btn-outline-info">Edit</button>     
+                                class="btn btn-outline-warning border border-light"> <i class="bi bi-pencil"></i> Edit</button>     
                               </form>
                             </div>
+                            <div class="me-3">
                               <form action="{{ route("products.destroy", $product->id)}}" method="POST" id="form">  
                                 @csrf
                                 @method('DELETE')
-                                    <button type="submit" onclick="deleteProduct()"  class="btn btn-outline-danger">Delete</button>
+                                    <button type="submit" onclick="deleteProduct()"  class="btn btn-outline-danger border border-light"> <i class="bi bi-trash"></i> Delete</button>
                               </form>
+                            </div>
+                            <div>
+                              <button class="btn btn-outline-info border border-light"> <i class="bi bi-eye"></i> Show</button>
+                            </div>
                         </td>
                       </tr>
                   @endforeach
@@ -149,35 +154,37 @@
           <form action="{{ route('changePassword')}}" method="POST">
             @csrf
 
-            <div class="container">
-              <label for="oldPasswordInput" class="form-label">Old Password</label>
-              <input name="old_password" type="password" class="@error('old_password') error-border @enderror  form-control" id="oldPasswordInput">
-              @error('old_password')
-              <div class="error">
-                  {{ $message }}
-              </div>
-              @enderror 
-            </div>
             <div class="row">
-              <div class="col-md-6">
-                <div class="mb-4">
-                    <label class="form-label" 
-                        >New password
-                    </label>
-                    <input
-                        type="password"
-                        class="@error('password') error-border @enderror form-control"
-                        name="new_password"
-                    />
-                    @error('password')
-                      <div class="error">
-                          {{ $message }}
-                      </div>
-                    @enderror
+              <div class="col-md-4">
+                <div class="mb-4">                  
+                  <label for="oldPasswordInput" class="form-label">Old Password</label>
+                  <input name="old_password" type="password" class="@error('old_password') error-border @enderror  form-control" id="oldPasswordInput">
+                  @error('old_password')
+                    <div class="error">
+                      {{ $message }}
+                    </div>
+                  @enderror 
                 </div>
               </div>
+                <div class="col-md-4">
+                  <div class="mb-4">
+                      <label class="form-label" 
+                          >New password
+                      </label>
+                      <input
+                          type="password"
+                          class="@error('password') error-border @enderror form-control"
+                          name="new_password"
+                      />
+                      @error('password')
+                        <div class="error">
+                            {{ $message }}
+                        </div>
+                      @enderror
+                  </div>
+                </div>
 
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="mb-4">
                     <label class="form-label" 
                         >Conferm password</label

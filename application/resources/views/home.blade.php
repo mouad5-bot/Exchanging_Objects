@@ -53,7 +53,7 @@
             <u>List of Products :</u> 
         </div>
         <div class="">
-            <button class="addProductButton btn-rounded  rounded-pill"><a href="#modal" data-bs-toggle="modal" type="button"  class="btn-rounded px-4 rounded-pill">Add Product</a></button>
+            <button class="addProductButton btn-rounded  rounded-pill"><a href="#modal" data-bs-toggle="modal" type="button"  class="btn-rounded px-4 rounded-pill"> <i class="bi bi-plus"></i> Add Product</a></button>
         </div>
     </div>
     <hr>
@@ -69,9 +69,10 @@
                         <h5 class="card-title"> <b> {{ $product->name }} </b></h5>
                         {{-- <p class="card-text">{{$product->description}}</p> --}}
                         <p class="card-text" title="{{$product->description}}">{{ \Illuminate\Support\Str::limit($product->description, $limit = 40, $end = '...') }}</p>
-                        <div class="d-flex justify-content-center">
-                          <a href="#" class="btn btn-info object scale text-white me-1"> <span><i class="bi bi-arrow-down-up me-1"></i></span> Exchange now</a>
-                          <a href="#" class="btn btn-info object scale text-white"> <span> <i class="bi bi-messenger"></i> </span> Send message </a>
+                        <hr>
+                        <div class="d-flex justify-content-center ">
+                          <a href="#" class="btn btn-light object scale text-black border border-dark me-3"> <span><i class="bi bi-arrow-down-up me-1"></i></span> Exchange now</a>
+                          <a href="#" class="btn btn-dark object scale text-white"> <span> <i class="bi bi-messenger"></i> </span> Send message </a>
                         </div>
                     </div>
                 </div>
