@@ -12,10 +12,13 @@ use App\Models\Comment;
 use App\Models\Product;
 use App\Models\Notification;
 use App\Models\Message;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
+
 
     protected $fillable = [
         'name',

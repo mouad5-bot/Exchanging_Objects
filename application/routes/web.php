@@ -5,9 +5,6 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use App\Models\Product;
-use App\Models\User;
-
 
 
 Auth::routes();
@@ -15,8 +12,7 @@ Auth::routes();
 // -------------------------- main Home ----------------------//
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home');
-    Route::get('/home', 'index')->name('home');
-    // Route::get('/users/profile', 'profile')->name('profile');   
+    Route::get('/home', 'index')->name('home'); 
 });
 
 // -------------------------- User | Profile ----------------------//
@@ -37,3 +33,10 @@ Route::get('aboutus/about', function () {
 Route::controller(HomeController::class)->group(function () {
     Route::get('/dashboard', 'index')->name('dashboard'); 
 });
+
+
+// -------------------------- main dashboard ----------------------//
+Route::controller(HomeController::class)->group(function () {
+    Route::get('products/filter', [productFilterController::class, 'filter'])->name('products.filter');
+});
+
