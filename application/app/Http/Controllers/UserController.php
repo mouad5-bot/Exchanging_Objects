@@ -81,8 +81,32 @@ class UserController extends Controller
             ->with('success', 'Password has been changed successfully!');
     }
 
-    public function destroy($id)
+    // public function deleteProfile(User $user)
+    // {
+    //     $user = Auth::user();
+    
+    //     if (!$user) {
+    //         return redirect()->back()->with('error', 'User not found');
+    //     }
+    
+        // if (Auth::user()->cannot('delete users') && Auth::user()->id != $user->id) {
+        //     return redirect()->back()->with('error', 'User does not have the right permissions');
+        // }
+    
+        // $user->delete();
+    
+        // return redirect()->back()->with('success', 'User deleted successfully ');
+    // }
+    public function deleteProfile($id)
     {
-        
+        $user = Auth::user($id);
+        // dd($user);
+        if (!$user) {
+            return redirect()->back()->with('error', 'User not found');
+        }
+
+        $user->delete();
+
+        return redirect()->back()->with('success', 'User deleted successfully');
     }
 }

@@ -225,9 +225,9 @@
           <h2>
             Delete Your Account
           </h2>
-          <hr class="w-25%" />
+          <hr />
           
-          <form action="{{route('users/profile/update', Auth::user()->id ) }}" method="POST">
+          <form action="{{route('deleteProfile', Auth::user()->id ) }}" method="POST">
             @csrf
             <div>
                 <i>Delete your account and all information related to your account such as your profile page, products published … Please be aware that all data will be permanently lost if you delete your account.</i>         

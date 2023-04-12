@@ -23,7 +23,7 @@ Route::controller(HomeController::class)->group(function () {
 Route::get('users/profile/{user}', [UserController::class , 'show'])->name('users/profile');
 Route::post('users/profile/update', [UserController::class, 'update'])->name('users/profile/update');
 Route::post('users/profile/updatePassword',[UserController::class, 'updatePassword'])->name('changePassword');
-Route::post('users/profile/deleteProfile',[UserController::class, 'deleteProfile'])->name('deleteProfile');
+Route::post('users/profile/deleteProfile/{id}',[UserController::class, 'deleteProfile'])->name('deleteProfile');
 
 // -------------------------- Products ----------------------//
 Route::resource('products', ProductController::class);
