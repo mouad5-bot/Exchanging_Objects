@@ -21,7 +21,6 @@ class HomeController extends Controller
         $products = Product::all();
         $categories = Category::all();
         $locations = Location::all();
-        $locations = Location::all();
         $statuses = Status::all();
 
 
