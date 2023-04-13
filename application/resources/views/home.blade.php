@@ -13,9 +13,9 @@
 {{-- {{dd($products);}} --}}
 {{-- {{dd($locations);}} --}}
 
-    <form action="" method="get" class="form-inline">
-        <div class="row">  
-            <div class="col-md-4">
+    <div class="row">  
+        <div class="col-md-3">
+            <form action=" {{ url('FilterProduct')}} " method="GET" class="form-inline">
                 <label for="">Filter by categories</label>
                 <div class="form-group">
                     <select class="form-control" name="category">
@@ -26,10 +26,10 @@
                     </select>
                 </div>
             </div>            
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <label for="">Filter by cities</label>
                 <div class="form-group">
-                    <select class="form-control" name="city">
+                    <select class="form-control" name="location">
                         <option>Choose the City</option>
                         @foreach($locations as $location)
                             <option value={{$location->id}}>{{ $location->name }}</option>
@@ -37,18 +37,23 @@
                     </select>
                 </div>
             </div>
-            <div class="col-md-4">  
-                <label for="">Search for</label>    
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Search ..." aria-label="Search" aria-describedby="search-bar">
-                    <button class="btn btn-outline-secondary" type="button" id="search-bar"><i class="bi bi-search"></i></button>
-                </div>
+            <div class="col-md-2">
+                <br />
+                <button type="submit" class="btn btn-light border border-dark"> <i class="bi bi-funnel"></i> Filter</button>
             </div>
+        </form>
+        <div class="col-md-4">  
+            <form action="{{ url('search') }}" method="GET" role="search">
+                    <label for="">Search for</label>    
+                    <div class="input-group mb-3">
+                        <input type="text" name="search" value="" class="form-control" placeholder="Search ..." aria-label="Search" aria-describedby="search-bar">
+                        <button class="btn btn-outline-secondary" type="button" id="search-bar"><i class="bi bi-search"></i></button>
+                    </div>
+                </div>
+            </form>
         </div>
-        {{-- <button type="submit" class="btn btn-primary">Search</button> --}}
-    </form>
       
-    <div class="d-flex justify-content-between mt-5">
+    <div class="d-flex justify-content-between mt-3">
         <div class='h3'>
             <u>List of Products :</u> 
         </div>
@@ -60,7 +65,7 @@
 
         <div class="row">
             @foreach($products as $product)            
-            <div class="col-sm-4 mt-4">
+            <div class="col-sm-4 mt-2">
                 <div class="card">
                     <div class="mt-3 product_image_border">
                         <img class="card-img-top product-image" src="{{ asset("$product->image") }}" alt="book">
@@ -68,7 +73,7 @@
                     <div class="card-body">
                         <h5 class="card-title"> <b> {{ $product->name }} </b></h5>
                         {{-- <p class="card-text">{{$product->description}}</p> --}}
-                        <p class="card-text" title="{{$product->description}}">{{ \Illuminate\Support\Str::limit($product->description, $limit = 40, $end = '...') }}</p>
+                        <p class="card-text text-secondary" title="{{$product->description}}">{{ \Illuminate\Support\Str::limit($product->description, $limit = 40, $end = '...') }}</p>
                         <hr>
                         <div class="d-flex justify-content-center ">
                           <a href="#" class="btn btn-light object scale text-black border border-dark me-3"> <span><i class="bi bi-arrow-down-up me-1"></i></span> Exchange now</a>
@@ -80,6 +85,8 @@
             @endforeach
         </div>
     </div>
+
+    
 </div>
 
     

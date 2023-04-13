@@ -31,9 +31,6 @@ class productFilterController extends Controller
         }
     
         $products = $product_query->get();
-        // return response()->json([
-        //     'data'=>$products,
-        // ], 200);
         return view('home', ['products' => $products]);
 
     }

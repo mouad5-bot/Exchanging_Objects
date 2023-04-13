@@ -4,6 +4,7 @@
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\productFilterController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -13,6 +14,8 @@ Auth::routes();
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home');
     Route::get('/home', 'index')->name('home'); 
+    Route::get('filter', 'FilterProduct'); 
+    Route::get('search', 'searchProduct'); 
 });
 
 // -------------------------- User | Profile ----------------------//
@@ -35,8 +38,7 @@ Route::controller(HomeController::class)->group(function () {
 });
 
 
-// -------------------------- main dashboard ----------------------//
-Route::controller(HomeController::class)->group(function () {
-    Route::get('products/filter', [productFilterController::class, 'filter'])->name('products.filter');
-});
+// -------------------------- Filter Products ----------------------//
+// Route::get('/', [productFilterController::class, 'filter'])->name('products.filter');
+
 
