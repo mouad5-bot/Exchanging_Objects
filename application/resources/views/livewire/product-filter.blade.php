@@ -7,27 +7,27 @@
     <div class="col-md-3">
         <label for="">Filter by categories</label>
         <div class="form-group">
-            <select wire:model="category" class="form-control" name="category">
-                <option value="">choose the category</option>
+            <input wire:model="filter" type="search" class="form-control" >
+                {{-- <option value="">choose the category</option>
                 @foreach($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
-                @endforeach
-            </select>
+                @endforeach --}}
+            {{-- </input> --}}
         </div>
     </div>            
     <div class="col-md-3">
         <label for="">Filter by cities</label>
         <div class="form-group">
-            <select wire:model="location"  class="form-control" name="location">
-                <option value="">Choose the City</option>
-                {{-- @foreach($locations as $location)
+            <input  wire:model="search"  class="form-control">
+                {{-- <option value="">Choose the City</option>
+                @foreach($locations as $location)
                     <option value="{{ $location->id }}">{{ $location->name }}</option>
                 @endforeach --}}
-            </select>
+            {{-- </input> --}}
         </div>
     </div>
     <div class="col-md-2">
-        <button wire:click="resetFilter">reset</button>
+        {{-- <button wire:click="resetFilter">reset</button> --}}
     </div>
     <div class="col-md-4">  
         <form action="{{ url('search') }}" method="GET" role="search">
@@ -40,16 +40,16 @@
         </form>
     </div>
     
-  
-<div class="d-flex justify-content-between mt-3">
-    <div class='h3'>
-        <u>List of Products :</u> 
+    
+    <div class="d-flex justify-content-between mt-3">
+        <div class='h3'>
+            <u>List of Products :</u> 
+        </div>
+        <div class="">
+            <button class="addProductButton btn-rounded  rounded-pill"><a href="#modal" data-bs-toggle="modal" type="button"  class="btn-rounded px-4 rounded-pill"> <i class="bi bi-plus"></i> Add Product</a></button>
+        </div>
     </div>
-    <div class="">
-        <button class="addProductButton btn-rounded  rounded-pill"><a href="#modal" data-bs-toggle="modal" type="button"  class="btn-rounded px-4 rounded-pill"> <i class="bi bi-plus"></i> Add Product</a></button>
-    </div>
-</div>
-<hr>
+    <hr>
 
     <div class="row">
         @foreach($products as $product)            

@@ -2,7 +2,7 @@
 # Introducing NtbadLo: A Sustainable Platform for Object Exchange
 ## 1- Overview
 <ul>
-NtbadLo is a website that helps people exchange things in a way that is better for the environment. Instead of buying new things, people can share or trade items they already have. The website is easy to use, and people can upload things they want to exchange and find items they need. It's not just about getting things, but also about building relationships with others. The website helps people communicate and make arrangements to exchange their items. It's good for the environment and it's easy to use. People who manage the website can keep track of what's happening and make sure things are running smoothly.
+NtbadLo is a website that helps people exchange things in a way that is better for the environment. Instead of buying new things, people can share or trade items they already have. The website is easy to use, and people can upload things they want to exchange and find items they need. It's not just about getting things, but also about building relationships with others. The website helps people communicate and make arrangements to exchange their items. It's good for the environment and it's easy to use.
 </ul>
 
 
