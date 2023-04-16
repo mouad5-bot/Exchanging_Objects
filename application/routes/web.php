@@ -37,6 +37,11 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/dashboard', 'index')->name('dashboard'); 
 });
 
+// -------------------------- Chat fonctionnality ----------------------//
+Route::controller(App\Http\Controllers\ChatifyController::class)->group(function () {
+    Route::get('/chatify/{user_id}', 'index')->name('chatify');
+});
+
 
 // -------------------------- Filter Products ----------------------//
 // Route::get('/', [productFilterController::class, 'filter'])->name('products.filter');

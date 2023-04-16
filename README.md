@@ -8,7 +8,7 @@ NtbadLo is a website that helps people exchange things in a way that is better f
 
 ## 2- Objectif
 <ul>
-The "NtbadLo" website is designed to allow users to upload objects they wish to exchange. It makes it easy for users to navigate and find items to exchange. The website encourages users to share items instead of buying new ones, which contributes to a more sustainable use of resources. By using "NtbadLo," people can also collaborate and exchange items with each other, which strengthens social ties and community.
+The "NtbadLo" website is designed to allow users to upload objects they wish to exchange. It makes it easy for users to navigate and find items to exchange. The website encourages users to share items instead of buying new ones, which contributes to a more sustainable use of resources. By using "NtbadLo," people can also collaborate and exchange items with each other,which makes their relationships and community stronger. 
 </ul>
 
 ## 3- Conception

@@ -53,12 +53,18 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item me-4 ">
+                        <li class="nav-item me-4 ">
 
-                                    <a class="nav-link {{ request()->routeIs('users/profile') ? 'active' : '' }}" href="{{ route('users/profile' , Auth::user()->id) }}">
-                                      Profile( {{ Auth::user()->name }} )
-                                    </a>
-                            </li>
+                                <a class="nav-link {{ request()->routeIs('chatify') ? 'active' : '' }}" href="{{ route('chatify' , Auth::user()->id) }}">
+                                    Chat
+                                </a>
+                        </li>
+                        <li class="nav-item me-4 ">
+
+                                <a class="nav-link {{ request()->routeIs('users/profile') ? 'active' : '' }}" href="{{ route('users/profile' , Auth::user()->id) }}">
+                                  Profile( {{ Auth::user()->name }} )
+                                </a>
+                        </li>
                             <li class="nav-item me-4">
                                     <a class="nav-link" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
