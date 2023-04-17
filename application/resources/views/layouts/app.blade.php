@@ -21,9 +21,9 @@
     <!-- Scripts -->
     @vite(['resources/css/style.js', 'resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body>
+<body id="body">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm" fixed-top>
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm  d-flex justify-content-between" fixed-top>
                 <a class="navbar-brand logo-img ms-5 mt-2" href="{{ url('/') }}">
                    <img src="{{ asset('assets/images/logo.png') }}"  alt="Ntbadlo | Exchange">
                 </a>
@@ -60,23 +60,22 @@
                             </a>
                         </li>
                         <li class="nav-item me-4 ">
-
-                                <a class="nav-link {{ request()->routeIs('users/profile') ? 'active' : '' }}" href="{{ route('users/profile' , Auth::user()->id) }}">
-                                  Profile( {{ Auth::user()->name }} )
-                                </a>
+                            <a class="nav-link {{ request()->routeIs('users/profile') ? 'active' : '' }}" href="{{ route('users/profile' , Auth::user()->id) }}">
+                                Profile( {{ Auth::user()->name }} )
+                            </a>
                         </li>
-                            <li class="nav-item me-4">
-                                    <a class="nav-link" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                        <li class="nav-item me-4">
+                                <a class="nav-link" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
                         @endguest
                     </ul>
                 </div>
@@ -93,7 +92,11 @@
 
         <main class="py-4">
             @yield('content')
-        </main>        
+        </main>  
+        <hr class="border border-dark">
+        <footer class="d-flex justify-content-center">
+            <p>&copy; 2023 NtbadLo. All rights reserved.</p>
+        </footer>      
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>

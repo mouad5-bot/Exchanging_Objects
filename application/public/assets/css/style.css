@@ -2,6 +2,11 @@
      box-sizing: border-box; /* how the total width and height of an HTML element is calculated. */
     font-family: Arial, sans-serif;
   }
+
+#body{
+    background-color: #F5F5F5;
+}
+
 /*****************  navbar ******************/
 .navbar {
     background-color: #fafafa!important;
@@ -129,4 +134,36 @@ ul li a {
   .scale:hover{
     transition: transform .4s ease-in-out;
     transform: scale(1.3);
+  }
+
+  /**************** login and register ****************/
+  #logo-auth img{
+    width: 70%;
+  }
+
+  #auth-text .title{
+    color: #0087F6;
+  }
+
+  #auth-text label{
+    color: #0087F6;
+  }
+
+ /**************** about page ****************/
+  
+  h1 {
+    margin: 0;
+    font-size: 36px;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  section {
+    margin-bottom: 40px;
+  }
+  
+  h2 {
+    font-size: 24px;
   }
