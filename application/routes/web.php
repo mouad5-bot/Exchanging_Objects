@@ -32,16 +32,18 @@ Route::get('aboutus/about', function () {
     return view('aboutus.about');
 })->name('aboutus.about');
 
-// -------------------------- main dashboard ----------------------//
-Route::controller(HomeController::class)->group(function () {
-    Route::get('/dashboard', 'index')->name('dashboard'); 
-});
-
 // -------------------------- Chat fonctionnality ----------------------//
 Route::controller(App\Http\Controllers\ChatifyController::class)->group(function () {
     Route::get('/chatify/{user_id}', 'index')->name('chatify');
 });
 
+
+// -------------------------- main dashboard ----------------------//
+
+    
+    Route::get('dashboard/index', function() {
+        return view('dashboard/index');
+    })->name('dashboard'); 
 
 // -------------------------- Filter Products ----------------------//
 // Route::get('/', [productFilterController::class, 'filter'])->name('products.filter');

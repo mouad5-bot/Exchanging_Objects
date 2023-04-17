@@ -32,7 +32,7 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
+                    
                     <ul class="navbar-nav me-auto ms-auto ">
                         <li class="nav-item me-4">
                             <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ url('/home') }}">Home</a>
@@ -41,23 +41,23 @@
                             <a class="nav-link {{ request()->routeIs('aboutus.about') ? 'active' : '' }}" href="{{ route('aboutus.about') }}">about</a>
                         </li> 
                         @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link {{ request()->routeIs('login') ? 'active' : '' }}" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
+                                @if (Route::has('login'))
+                                    <div class="nav-item">
+                                        <a class="btn btn-light text-black" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    </div>
+                                @endif
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link {{ request()->routeIs('register') ? 'active' : '' }}" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
+                                @if (Route::has('register'))
+                                    <div class="nav-item">
+                                        <a class="
+                                        btn btn-dark text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    </div>
+                                @endif
                         @else
                         <li class="nav-item me-4 ">
-
-                                <a class="nav-link {{ request()->routeIs('chatify') ? 'active' : '' }}" href="{{ route('chatify' , Auth::user()->id) }}">
-                                    Chat
-                                </a>
+                            <a class="nav-link {{ request()->routeIs('chatify') ? 'active' : '' }}" href="{{ route('chatify' , Auth::user()->id) }}">
+                                Chat
+                            </a>
                         </li>
                         <li class="nav-item me-4 ">
 
@@ -83,17 +83,19 @@
         </nav>
 
         @if ($errors->any())
-        <div class="flash-error mt-5 text-center">
-            <h3> There is an error, please check out ! </h3>
-             @foreach ($errors->all() as $error)
-                <p> {{ $error }} </p>
-            @endforeach 
-        </div>
-    @endif
+            <div class="flash-error mt-5 text-center">
+                <h3> There is an error, please check out ! </h3>
+                @foreach ($errors->all() as $error)
+                    <p> {{ $error }} </p>
+                @endforeach 
+            </div>
+         @endif
+
         <main class="py-4">
             @yield('content')
-        </main>
+        </main>        
     </div>
+
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
