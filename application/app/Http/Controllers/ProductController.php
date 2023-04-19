@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
@@ -21,11 +22,6 @@ class ProductController extends Controller
 
         $products = Product::all();
         return view('home',['products'=>$products]);
-    }
-
-    public function create()
-    {
-        //
     }
 
     public function store(StoreProductRequest $request)
@@ -93,7 +89,6 @@ class ProductController extends Controller
 
     }
 
-
     public function destroy(Product $product)
     {        
         $product-> delete();
@@ -101,4 +96,42 @@ class ProductController extends Controller
         ->back()
         ->with('success', 'product has been deleted !!');
     }
+
+    public function exchange($productId)
+    {
+        $user = Auth::user();
+        $products = $user->products()->with('categories', 'status')->get();
+
+        $product = Product::find($productId);
+        
+        return view('products/exchange', 
+        [
+            'product' => $product,
+            'products' => $products,
+        ]);
+    }
+
+    public function ConfermExchanging(Request $request)
+    {
+        // Retrieve the user's selected product and the product they want to exchange it for
+        $product = Product::findOrFail($request->input('product_id'));
+        $exchangeProduct = Product::findOrFail($request->input('exchange_product_id'));
+
+        // Create a new exchange request
+        $exchange = new Exchange;
+        $exchange->user_id = auth()->user()->id;
+        $exchange->product_id = $product->id;
+        $exchange->exchange_product_id = $exchangeProduct->id;
+        $exchange->status = 'pending';
+        $exchange->save();
+
+        // Notify the other user about the exchange request
+        $exchangeProduct->user->notify(new ExchangeRequest($exchange));
+
+        // Redirect the user back to the product listing page
+        return redirect()->route('products.index')->with('success', 'Exchange request sent!');
+    }
+
+    
+
 }

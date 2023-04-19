@@ -3,7 +3,6 @@
     // dd($locations);
     // dd($products);    
 @endphp
-
     <div class="col-md-3">
         <label for="">Filter by categories</label>
         <div class="form-group">
@@ -40,7 +39,6 @@
         </form>
     </div>
     
-    
     <div class="d-flex justify-content-between mt-3">
         <div class='h3'>
             <u>List of Products :</u> 
@@ -63,7 +61,7 @@
                     <p class="card-text text-secondary" title="{{$product->description}}">{{ \Illuminate\Support\Str::limit($product->description, $limit = 40, $end = '...') }}</p>
                     <hr>
                     <div class="d-flex justify-content-center ">
-                      <a href="#" class="btn btn-light object scale text-black border border-dark me-3"> <span><i class="bi bi-arrow-down-up me-1"></i></span> Exchange now</a>
+                      <a href="{{ route('exchange', [$product->id]) }}" class="btn btn-light object scale text-black border border-dark me-3"> <span><i class="bi bi-arrow-down-up me-1"></i></span> Exchange now</a>
                       <a href="{{ route('chatify', [$product->user_id]) }}" class="btn btn-dark object scale text-white"> <span> <i class="bi bi-messenger"></i> </span> Send message </a>
                     </div>
                 </div>

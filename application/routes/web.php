@@ -26,6 +26,8 @@ Route::post('users/profile/deleteProfile/{id}',[UserController::class, 'deletePr
 
 // -------------------------- Products ----------------------//
 Route::resource('products', ProductController::class);
+Route::get('exchange/{product_id}', [ProductController::class, 'exchange'])->name('exchange');
+Route::post('confermExchanging/{product_id}', [ProductController::class, 'exchange'])->name('confermExchanging');
 
 // -------------------------- About us ----------------------//
 Route::get('aboutus/about', function () {
@@ -38,9 +40,7 @@ Route::controller(App\Http\Controllers\ChatifyController::class)->group(function
 });
 
 
-// -------------------------- main dashboard ----------------------//
-
-    
+// -------------------------- main dashboard ----------------------//    
     Route::get('dashboard/index', function() {
         return view('dashboard/index');
     })->name('dashboard'); 
