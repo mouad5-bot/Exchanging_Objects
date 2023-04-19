@@ -3,13 +3,14 @@
 @section('content')
 <div class="container" id="login">
    <div class="row">    
-        <div class="col-md-5 d-flex justify-content-center align-items-center" id="logo-auth">
+        <div class="col-md-6 d-flex justify-content-center align-items-center" id="logo-auth">
             <img src="{{ asset('assets/images/logo.png') }}"  alt="Ntbadlo | Exchange">
         </div>
-        <div class="col-md-6">
+        <div class="col-md-5">
             <div class="card border border-danger border-2" id="auth-text">
-                <div class="h1 m-auto mt-3 mb-2 title">{{ __('Register') }}</div>
-                <hr class="border border-danger">
+                <div class="h1 m-auto mt-3 mb-2 title">{{ __('Register') }}
+                    <hr class="borderOfLineOfLogin">
+                </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf

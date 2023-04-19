@@ -8,8 +8,9 @@
         </div>
         <div class="col-md-5">
                 <div class="card border border-danger border-2 p-3" id="auth-text">
-                    <div class="h1 m-auto mt-3 mb-3 title">{{ __('Login') }}</div>
-                    <hr class="border border-danger">
+                    <div class="h1 m-auto mt-3 mb-3 title">{{ __('Login') }}
+                    
+                        <hr class="borderOfLineOfLogin"></div>
                     <div class="card-body mb-2">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf

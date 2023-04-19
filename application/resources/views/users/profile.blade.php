@@ -173,10 +173,10 @@
                       </label>
                       <input
                           type="password"
-                          class="@error('password') error-border @enderror form-control"
+                          class="@error('new_password') error-border @enderror form-control"
                           name="new_password"
                       />
-                      @error('password')
+                      @error('new_password')
                         <div class="error">
                             {{ $message }}
                         </div>
@@ -191,14 +191,14 @@
                     >
                     <input
                         type="password"
-                        class="@error('password') error-border @enderror form-control"
+                        class="@error('new_password') error-border @enderror form-control"
                         name="new_password_confirmation"
                     />
-                    @error('password')
-                    <div class="error">
-                        {{ $message }}
-                    </div>
-                  @enderror
+                    @error('new_password')
+                      <div class="error">
+                          {{ $message }}
+                      </div>
+                    @enderror
                 </div>    
               </div>
               <div>

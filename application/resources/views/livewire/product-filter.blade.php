@@ -27,7 +27,7 @@
         </div>
     </div>
     <div class="col-md-2">
-        {{-- <button wire:click="resetFilter">reset</button> --}}
+        <button wire:click="resetFilter" class="btn btn-light border border-dark mt-4"><i class="bi bi-funnel"></i> Filter</button>
     </div>
     <div class="col-md-4">  
         <form action="{{ url('search') }}" method="GET" role="search">
@@ -65,8 +65,6 @@
                     <div class="d-flex justify-content-center ">
                       <a href="#" class="btn btn-light object scale text-black border border-dark me-3"> <span><i class="bi bi-arrow-down-up me-1"></i></span> Exchange now</a>
                       <a href="{{ route('chatify', [$product->user_id]) }}" class="btn btn-dark object scale text-white"> <span> <i class="bi bi-messenger"></i> </span> Send message </a>
-                     
-                      
                     </div>
                 </div>
             </div>

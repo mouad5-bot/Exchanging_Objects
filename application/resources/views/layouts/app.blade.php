@@ -40,20 +40,7 @@
                         <li class="nav-item me-4">
                             <a class="nav-link {{ request()->routeIs('aboutus.about') ? 'active' : '' }}" href="{{ route('aboutus.about') }}">about</a>
                         </li> 
-                        @guest
-                                @if (Route::has('login'))
-                                    <div class="nav-item">
-                                        <a class="btn btn-light text-black" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                    </div>
-                                @endif
-
-                                @if (Route::has('register'))
-                                    <div class="nav-item">
-                                        <a class="
-                                        btn btn-dark text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                    </div>
-                                @endif
-                        @else
+                        @auth
                         <li class="nav-item me-4 ">
                             <a class="nav-link {{ request()->routeIs('chatify') ? 'active' : '' }}" href="{{ route('chatify' , Auth::user()->id) }}">
                                 Chat
@@ -76,8 +63,28 @@
                                 </form>
                             </div>
                         </li>
-                        @endguest
+                        @endauth
                     </ul>
+                    
+                    @guest
+                    <div class="d-flex me-5">
+                        <div class="">
+                            @if (Route::has('login'))
+                                <div class="nav-item">
+                                    <a class="btn btn-light text-black" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </div>
+                            @endif
+                        </div>
+                        <div class="">
+                            @if (Route::has('register'))
+                                <div class="nav-item">
+                                    <a class="
+                                    btn btn-dark text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                    @endguest
                 </div>
         </nav>
 
@@ -93,8 +100,8 @@
         <main class="py-4">
             @yield('content')
         </main>  
-        <hr class="border border-dark">
-        <footer class="d-flex justify-content-center">
+        <footer class="footer">
+            <hr class="border border-dark">
             <p>&copy; 2023 NtbadLo. All rights reserved.</p>
         </footer>      
     </div>

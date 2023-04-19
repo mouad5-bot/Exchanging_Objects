@@ -129,41 +129,69 @@ ul li a {
 /***************** annimation *******************/
 .scale {
     transition: transform .4s ease-in-out;
-  }
-  
-  .scale:hover{
-    transition: transform .4s ease-in-out;
-    transform: scale(1.3);
-  }
+}
 
-  /**************** login and register ****************/
-  #logo-auth img{
-    width: 70%;
-  }
+.scale:hover{
+transition: transform .4s ease-in-out;
+transform: scale(1.3);
+}
 
-  #auth-text .title{
+/**************** login and register ****************/
+#logo-auth img{
+width: 70%;
+}
+
+#auth-text .title{
     color: #0087F6;
-  }
+}
 
-  #auth-text label{
+#auth-text label{
     color: #0087F6;
-  }
+}
 
- /**************** about page ****************/
-  
-  h1 {
+.borderOfLineOfLogin{
+    border: 2px solid red;
+}
+
+/**************** about page ****************/
+
+h1 {
     margin: 0;
     font-size: 36px;
-  }
-  
-  main {
+}
+
+main {
     padding: 20px;
-  }
-  
-  section {
+}
+
+section {
     margin-bottom: 40px;
-  }
-  
-  h2 {
+}
+
+h2 {
     font-size: 24px;
-  }
+}
+
+#about-image img{
+    width: 75vh;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 579px) 
+{
+    #about-image img{
+        width: 50vh;
+        border-radius: 10px;      
+    }
+
+    #about-content{
+        display: block!important;    
+    }
+}
+/****************** footer **********************/
+  
+.footer {
+    width: 100%;
+    color: rgb(3, 3, 3);
+    text-align: center;
+}
