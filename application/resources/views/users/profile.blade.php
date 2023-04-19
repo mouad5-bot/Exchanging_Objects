@@ -264,7 +264,7 @@
                   </div>
                   <div class="modal-body">
                       <div class="mb-3">
-                          <label class="form-label">name</label>
+                          <label class="form-label">name <span class="text-danger">*</span></label>
                           <input  type="text" class="@error('name') error-border @enderror form-control" name="name" id="name"/>                            
                           @error('name')
                               <div class="error">
@@ -273,7 +273,7 @@
                           @enderror
                       </div> 
                       <div class="mb-3">
-                          <label class="form-label">Description</label>
+                          <label class="form-label">Description <span class="text-danger">*</span></label>
                           <textarea class="@error('description') error-border @enderror form-control" name="description" id="description"></textarea>
                           @error('description')
                               <div class="error">
@@ -282,7 +282,7 @@
                           @enderror
                       </div>      
                       <div class="mb-3">
-                          <label class="form-label">image</label> 
+                          <label class="form-label">image <span class="text-danger">*</span></label> 
                           <input type="file" class="@error('image') error-border @enderror form-control" id="inputGroupFile04" name="image" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                           @error('image')
                               <div class="error">
@@ -291,11 +291,12 @@
                           @enderror
                       </div>
                       <div class="mb-3">
-                          <label class="form-label">Status</label>
+                          <label class="form-label">Status <span class="text-danger">*</span></label>
                           <select class="@error('status') error-border @enderror form-control" name="status_id" id="status">
-                              <option value="1">In progress</option>
-                              <option value="2">Accepted</option>
-                              <option value="3">Refused</option>
+                            <option value="1">select the status of this product</option>
+                            @foreach($statuses as $status)
+                                <option value={{$status->id}}>{{ $status->name }}</option>
+                            @endforeach
                           </select>
                           @error('status')
                               <div class="error">
@@ -304,16 +305,12 @@
                           @enderror
                       </div>
                       <div class="mb-3">
-                          <label class="form-label">Category</label>
+                          <label class="form-label">Category <span class="text-danger">*</span></label>
                           <select class="@error('category') error-border @enderror form-control" name="category_id" id="category">
-                              <option value=1>Book</option>
-                              <option value=2>Electronics</option>
-                              <option value=3>Clothing</option>
-                              <option value=4>Accessories</option>
-                              <option value=5>Games</option>
-                              <option value=6>Sports</option>
-                              <option value=7>Music</option>
-                              <option value=8>Art</option>
+                              <option value="">choose the category</option>
+                              @foreach($categories as $category)
+                                  <option value="{{ $category->id }}">{{ $category->name }}</option>
+                              @endforeach 
                           </select>
                           @error('category')
                               <div class="error">
@@ -322,11 +319,12 @@
                           @enderror
                       </div>
                       <div class="mb-3">
-                          <label class="form-label">Your Location</label>
+                          <label class="form-label">Your Location <span class="text-danger">*</span></label>
                           <select class="@error('location') error-border @enderror form-control" name="location_id" id="location">
-                              <option value=1>Youssoufia</option>
-                              <option value=2>Safi</option>
-                              <option value=3>Marrakech</option>
+                            <option value=""> What is your location ?</option>                            
+                            @foreach($locations as $location)
+                              <option value="{{$location->id}}">{{ $location->name }}</option>
+                            @endforeach
                           </select>
                           @error('location')
                               <div class="error">

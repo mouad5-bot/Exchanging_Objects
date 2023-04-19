@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UpdateUserNameRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use App\Models\Product;
+use App\Models\Category;
+use App\Models\Location;
+use App\Models\Status;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -18,13 +20,6 @@ class UserController extends Controller
     {
         $this->middleware('auth');
     }
-
-    
-    // public function index()
-    // {        
-    //     $products = Product::all();
-    //     return view('users/profile',['products'=>$products]);
-    // }
 
     public function create()
     {
@@ -40,9 +35,17 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $products = $user->products()->with('categories', 'status')->get();
+        $categories = Category::all();
+        $locations = Location::all();
+        $statuses = Status::all();
 
-        // dd($products);
-        return view('users/profile', ['products'=> $products]);
+        return view('users/profile', 
+        [
+            'products'=> $products,
+            'categories' => $categories,
+            'locations' => $locations,
+            'statuses' => $statuses,
+        ]);
     }
     
     public function edit(User $user)
@@ -68,7 +71,6 @@ class UserController extends Controller
     {  
         $data = $request->validated();
        
-        // dd($data);
         #Match The Old Password
         if(!Hash::check($request->old_password, auth()->user()->password)){
             return back()->with("error", "Old Password Doesn't match!");

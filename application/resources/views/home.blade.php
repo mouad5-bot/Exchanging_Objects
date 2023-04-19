@@ -20,7 +20,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label class="form-label">name</label>
+                            <label class="form-label">name <span class="text-danger">*</span></label>
                             <input  type="text" class="@error('name') error-border @enderror form-control" name="name" id="name"/>                            
                             @error('name')
                                 <div class="error">
@@ -29,7 +29,7 @@
                             @enderror
                         </div> 
                         <div class="mb-3">
-                            <label class="form-label">Description</label>
+                            <label class="form-label">Description <span class="text-danger">*</span></label>
                             <textarea class="@error('description') error-border @enderror form-control" name="description" id="description"></textarea>
                             @error('description')
                                 <div class="error">
@@ -38,7 +38,7 @@
                             @enderror
                         </div>      
                         <div class="mb-3">
-                            <label class="form-label">image</label> 
+                            <label class="form-label">image <span class="text-danger">*</span></label> 
                             <input type="file" class="@error('image') error-border @enderror form-control" id="inputGroupFile04" name="image" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                             @error('image')
                                 <div class="error">
@@ -47,7 +47,7 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Status</label>
+                            <label class="form-label">Status <span class="text-danger">*</span></label>
                             <select class="@error('status') error-border @enderror form-control" name="status_id" id="status">
                                 <option value="1">select the status of this product</option>
                                 @foreach($statuses as $status)
@@ -61,7 +61,7 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Category</label>
+                            <label class="form-label">Category <span class="text-danger">*</span></label>
                             <select class="@error('category') error-border @enderror form-control" name="category_id" id="category">
                                 <option>select the category of this product</option>
                                 @foreach($categories as $category)
@@ -75,7 +75,7 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Your Location</label>
+                            <label class="form-label">Your Location <span class="text-danger">*</span></label>
                             <select class="@error('location') error-border @enderror form-control" name="location_id" id="location">
                                 <option>Choose your location</option>
                                 @foreach($locations as $location)

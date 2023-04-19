@@ -100,14 +100,20 @@ class ProductController extends Controller
     public function exchange($productId)
     {
         $user = Auth::user();
-        $products = $user->products()->with('categories', 'status')->get();
+        $products = $user->products()->with('categories', 'status')->get();        
+        $categories = Category::all();
+        $locations = Location::all();
+        $statuses = Status::all();
 
         $product = Product::find($productId);
-        
+
         return view('products/exchange', 
         [
             'product' => $product,
             'products' => $products,
+            'categories' => $categories,
+            'locations' => $locations,
+            'statuses' => $statuses,
         ]);
     }
 
