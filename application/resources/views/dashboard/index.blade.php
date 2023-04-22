@@ -1,60 +1,77 @@
 
 @extends('layouts.app')
 
+
+@section('title')
+  Dashboard
+@endsection
+
 @section('content')
 
-<div class="sidebar" id="sidebar">
-    <div class="sidebar-inner slimscroll">
-        <div id="sidebar-menu" class="sidebar-menu">
-            <ul>          
-                <li class="active"> <a href="{{route('dashboard')}}"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a> </li>
-                <li class="list-divider"></li>
-                <li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Customers </span> <span class="menu-arrow"></span></a>
-                    <ul class="submenu_class" style="display: none;">
-                        {{-- <li><a href="{{route('Customers.index')}}"> All customers </a></li> --}}
-                    </ul>
-                </li>
-                
-                <li class="submenu"> <a href="#"><i class="fas fa-hand-holding"></i> <span> Camion </span> <span class="menu-arrow"></span></a>
-                    <ul class="submenu_class" style="display: none;">
-                        {{-- <li><a href="{{route('camions.index')}}"> All Camion </a></li> --}}
-                    </ul>
-                </li>
-                <li class="submenu"> <a href="#"><i class="fas fa-comments"></i> <span> FeedBack </span> <span class="menu-arrow"></span></a>
-                    <ul class="submenu_class" style="display: none;">
-                        {{-- <li><a href="{{route('feedbacks.index')}}">All FeedBack </a></li> --}}
-                    </ul>
-                </li>
-                
-               
-                <li class="submenu"> <a href="#"><i class="fab fa-first-order"></i> <span> Orders </span> <span class="menu-arrow"></span></a>
-                    <ul class="submenu_class" style="display: none;">
-                        {{-- <li><a href="{{route('orders.index')}}">All Orders </a></li> --}}
-                    </ul>
-                </li>
-                
-                <li class="submenu"> <a href="#"><i class="fas fa-money-check-alt"></i><span> Reglement </span> <span class="menu-arrow"></span></a>
-                    <ul class="submenu_class" style="display: none;">
-                        <li><a href="invoices.html">Invoices </a></li>
-                        <li><a href="expenses.html">All Reglement </a></li>
-                    </ul>
-                </li>
-                <li class="submenu"> <a href="#"><i class="fas fa-user-tag"></i> <span> Role </span> <span class="menu-arrow"></span></a>
-                    <ul class="submenu_class" style="display: none;">
-                        <li><a href="salary.html">All Role </a></li>
-                        <li><a href="salary-veiw.html">add Role </a></li>
-                    </ul>
-                </li>            
-                <li class="submenu"> <a href="#"><i class="fe fe-table"></i> <span> Reports </span> <span class="menu-arrow"></span></a>
-                    <ul class="submenu_class" style="display: none;">
-                        <li><a href="expense-reports.html">Expense Report </a></li>
-                        <li><a href="invoice-reports.html">Invoice Report </a></li>
-                    </ul>
-                </li>
-                <li> <a href="pricing.html"><i class="far fa-money-bill-alt"></i> <span>consumption</span></a> </li>
-                {{-- <li> <a href="{{route('settings.index')}}"><i class="fas fa-cog"></i> <span>Settings</span></a></li> --}}
-              
-            </ul>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card m-3">
+            <div class="card-body">
+                <div class="d-flex justify-content-between mt-3">
+                    <div class='h3'>
+                        <u>List of My Products :</u> 
+                    </div>
+                    <div class="">
+                        <button class="addProductButton btn-rounded  rounded-pill"><a href="#modal" data-bs-toggle="modal" type="button"  class="btn-rounded px-4 rounded-pill"><i class="bi bi-plus"></i>Add Product</a></button>
+                    </div>
+                </div>
+                <hr class="mb-3" />        
+                <div class="table-responsive">
+                <table class="table mt-5 mb-3" id="myTable">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">image</th>
+                    <th scope="col">Name </th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Status</th>
+                    <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{-- @foreach($products as $product)                    --}}
+                        
+                        @csrf
+                        {{-- <tr id="{{ $product->id }}"> --}}
+                            {{-- <th scope="row"> {{ $product->id }}</th>
+                            <td> <img src="{{ asset("$product->image") }}" alt="{{ $product->category }}" style=width:2rem; > </td>
+                            <td> {{ $product->name }}</td>
+                            <td> {{ $product->categories->name }} </td>
+                            <td> {{ $product->locations->name }} </td>
+                            <td> {{ $product->status->name }}</td> --}}
+                            <td class="d-flex justify-content-center">
+                                <div class="me-3">
+                                {{-- <form action="{{ route("products.edit", $product->id)}}" method="GET">   --}}
+                                    @csrf 
+                                    <button type="submit" onclick="getdataProduct()"
+                                    class="btn btn-outline-warning border border-light"> <i class="bi bi-pencil"></i> Edit</button>     
+                                </form>
+                                </div>
+                                <div class="me-3">
+                                {{-- <form action="{{ route("products.destroy", $product->id)}}" method="POST" id="form">   --}}
+                                    @csrf
+                                    @method('DELETE')
+                                        <button type="submit" onclick="deleteProduct()"  class="btn btn-outline-danger border border-light"> <i class="bi bi-trash"></i> Delete</button>
+                                </form>
+                                </div>
+                                <div>
+                                <button class="btn btn-outline-info border border-light"> <i class="bi bi-eye"></i> Show</button>
+                                </div>
+                            </td>
+                        </tr>
+                    {{-- @endforeach --}}
+                </tbody>
+                </table>
+            </div>
+            </div>
         </div>
     </div>
 </div>

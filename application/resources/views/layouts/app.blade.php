@@ -100,7 +100,7 @@
         <main class="py-4">
             @yield('content')
         </main>  
-        <footer class="footer">
+        <footer class="footer mt-5">
             <hr class="border border-dark">
             <p>&copy; 2023 NtbadLo. All rights reserved.</p>
         </footer>      
