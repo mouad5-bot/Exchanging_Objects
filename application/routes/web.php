@@ -4,6 +4,7 @@
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\productFilterController;
 use Illuminate\Support\Facades\Route;
 
@@ -41,9 +42,11 @@ Route::controller(App\Http\Controllers\ChatifyController::class)->group(function
 
 
 // -------------------------- main dashboard ----------------------//    
-    Route::get('dashboard/index', function() {
-        return view('dashboard/index');
-    })->name('dashboard'); 
+    // Route::get('dashboard/index', function() {
+    //     return view('dashboard/index');
+    // })->name('dashboard'); 
+    Route::get('dashboard/index', [DashboardController::class , 'show'])->name('dashboard.index');
+
 
 // -------------------------- Filter Products ----------------------//
 // Route::get('/', [productFilterController::class, 'filter'])->name('products.filter');
