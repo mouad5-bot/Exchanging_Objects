@@ -13,11 +13,12 @@ use App\Models\Product;
 use App\Models\Notification;
 use App\Models\Message;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Permission\Traits\HasRoles;
 
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
     // use SoftDeletes;
 
 
@@ -37,7 +38,7 @@ class User extends Authenticatable
     ];
     
     public function roles(){
-        return $this->belongsTo(Role::class);
+        return $this->belongsToMany(Role::class);
     }
 
     public function comments(){
