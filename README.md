@@ -12,29 +12,29 @@ The "NtbadLo" website is designed to allow users to upload objects they wish to 
 </ul>
 
 
-## 3- Les outils utilisées 
+## 3- The tools used
 <ul>
-<li> langages de programmation : PHP, JavaScript, SQL </li>
+<li> Programming langages : PHP, JavaScript, SQL </li>
 <li> Frameworks : Laravel, Bootstrap5 </li>
-<li> Gestion de projet : jira </li>
-<li> Aures : Html, css, uml, figma </li>
+<li> Management of projet : jira, agile, SCRUM . </li>
+<li> Other : Html, css, uml, figma </li>
 
 </ul>
 
 ## 4- Conception
 <ul>
-<h4> Diagramme de cas d'utilisation : </h4>
-  https://lucid.app/lucidchart/c3b5bb17-2a44-4001-af50-64defd2fc140/edit?beaconFlowId=B5C9C27C86248CBD&invitationId=inv_bdfeff10-111b-4fb9-be30-58fae1bee3f2&page=0_0#
-  
-<h4> Diagramme de séquence : </h4>
-<ul> 
-  <li>for user : 
-    https://lucid.app/lucidchart/d366d4cc-1002-446d-8162-4a809d312d3c/edit?beaconFlowId=3A0ADA43E9E74339&invitationId=inv_8bba5866-ff85-40b7-98a8-369a85bbc2f4&page=0_0#
+<h4> Use case diagram : </h4>
+  	<a href="https://lucid.app/lucidchart/c3b5bb17-2a44-4001-af50-64defd2fc140/edit?viewport_loc=-2746%2C-1160%2C4800%2C1980%2C0_0&invitationId=inv_bdfeff10-111b-4fb9-be30-58fae1bee3f2"> click here ...</a>
+
+<h4> Sequence diagram : </h4>
+  <ul> 
+    <li>for user : 
+	    <a href="https://lucid.app/lucidchart/d366d4cc-1002-446d-8162-4a809d312d3c/edit?viewport_loc=-798%2C-438%2C4032%2C1857%2C0_0&invitationId=inv_8bba5866-ff85-40b7-98a8-369a85bbc2f4">click here ... </a>
     </li>
-  <li> for admin :
-  https://lucid.app/lucidchart/8062330f-853f-450d-8fad-43c508d0dbd6/edit?beaconFlowId=E02275468C9181A4&invitationId=inv_2a562cb6-0462-431c-8625-1d5d391a3030&page=0_0#
-  </li>
+    <li> for admin :
+      	<a href="https://lucid.app/lucidchart/53e58dcf-43ad-4f25-aac1-b87244387e00/edit?viewport_loc=-2297%2C-1222%2C4994%2C2300%2C0_0&invitationId=inv_2eed1bcb-ab69-4793-af60-40b741c8cf5f">click here ... </a>
+    </li>
   </ul>
-<h4> Diagramme de classe : </h4>
-  https://lucid.app/lucidchart/a1a33591-90c0-444b-9dfe-bdf4cbbaafd9/edit?invitationId=inv_1190262e-f381-433b-9483-bda6e4823190&page=0_0#
+<h4> Class diagram : </h4>
+  	<a href="https://lucid.app/lucidchart/153464e9-d3e3-430d-ab59-e16437ae0154/edit?viewport_loc=-1187%2C-1109%2C3627%2C1670%2C0_0&invitationId=inv_4bb7ec96-eec4-489f-87ad-123e89ffba12">click here ... </a>
 </ul>
