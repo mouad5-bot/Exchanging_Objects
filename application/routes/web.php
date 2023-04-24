@@ -41,10 +41,7 @@ Route::controller(App\Http\Controllers\ChatifyController::class)->group(function
 });
 
 
-// -------------------------- main dashboard ----------------------//    
-    // Route::get('dashboard/index', function() {
-    //     return view('dashboard/index');
-    // })->name('dashboard'); 
+// -------------------------- main dashboard ----------------------//
     Route::get('dashboard/index', [DashboardController::class , 'show'])->name('dashboard.index');
 
 

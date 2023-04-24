@@ -37,7 +37,7 @@
                         <li class="nav-item me-4">
                             <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ url('/home') }}">Home</a>
                         </li> 
-                        @can('view-dashboard')
+                        @can('view dashboard') 
                         <li class="nav-item me-4">
                             <a class="nav-link {{ request()->routeIs('dashboard.index') ? 'active' : '' }}" href="{{ url('/dashboard/index') }}">Dashboard</a>
                         </li>

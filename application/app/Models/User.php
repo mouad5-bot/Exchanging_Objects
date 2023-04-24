@@ -18,7 +18,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles; 
     // use SoftDeletes;
 
 
@@ -37,9 +37,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
-    public function roles(){
-        return $this->belongsToMany(Role::class);
-    }
+    // public function roles(){
+    //     return $this->belongsToMany(Role::class);
+    // }
 
     public function comments(){
         return $this->hasMany(Comment::class);
