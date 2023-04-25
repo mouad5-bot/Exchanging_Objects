@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
@@ -29,6 +30,10 @@ Route::post('users/profile/deleteProfile/{id}',[UserController::class, 'deletePr
 Route::resource('products', ProductController::class);
 Route::get('exchange/{product_id}', [ProductController::class, 'exchange'])->name('exchange');
 Route::post('confermExchanging/{product_id}', [ProductController::class, 'exchange'])->name('confermExchanging');
+
+// -------------------------- Categories --------------------//
+Route::resource('category', CategoryController::class);
+
 
 // -------------------------- About us ----------------------//
 Route::get('aboutus/about', function () {

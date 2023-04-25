@@ -36,7 +36,15 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        //
+        // $data = $request->validated();
+
+        // // $products = new Product;
+
+        // $user = Auth::user();
+        // $product = $user->products()->create($data);
+
+        // return back()
+        // ->with('success', 'Your product has been added succssefully');        
     }
 
     /**
