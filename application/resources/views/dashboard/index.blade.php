@@ -105,7 +105,7 @@
                         <td> {{ $category->name }}</td>
                           <td class="d-flex justify-content-center">
                             <div class="me-3">
-                              <form action="{{ route("products.edit", $product->id)}}" method="GET">  
+                              <form action="{{ route("category.edit", $category->id)}}" method="GET">  
                                 @csrf 
                                 <button type="submit" onclick="getdataProduct()"
                                 class="btn btn-outline-warning border border-light"> <i class="bi bi-pencil"></i> Edit</button>     
@@ -185,5 +185,6 @@
 
 @extends('dashboard.pages.addCategory');
 @extends('dashboard.pages.addProduct');
+@extends('dashboard.pages.editCategory');
 
 @endsection

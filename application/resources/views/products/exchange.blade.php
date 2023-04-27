@@ -35,23 +35,22 @@
 						<form method="POST" action="{{ route('confermExchanging', [$product->id]) }}">
 							@csrf
 							{{-- <input type="hidden" name="" value="{{ $products->id }}"> --}}
-							<div class="row">
-								<div class="col-6">
-									<h3 class="text-success">Select a product to exchange:</h3>
+							<div class="row justify-content-center">
+								<div class="col-8">
+									<h3 class="text-primary">Select one of your product to exchange:</h3>
 								</div>
-								<div class="col-6">
+								<div class="col-8">
 									<select name="exchange_product_id" class="form-select" id="exchange_product_id">
-										@foreach($products as $exchangeProduct)
-											<option value="{{ $exchangeProduct->id }}">{{ $exchangeProduct->name }}</option>
+										@foreach($products as $product)
+											<option value="{{ $product->id }}">{{ $product->name }}</option>
 										@endforeach
 									</select>
 								</div>
 							</div>
-							{{-- <button type="submit"></button> --}}
-							{{-- <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Primary link</a>
-							<button type="button" class="btn btn-primary btn-lg">Large button</button> --}}
-							<div class="m-auto">
-								<button type="button" class="btn btn-primary btn-lg"> Exchange Now </button>
+							<div class="row justify-content-center">
+								<div class="col-4 mt-4">
+									<button type="button" class="btn btn-primary btn-lg"> Exchange Now </button>
+								</div>
 							</div>
 						</form>
 					</div>

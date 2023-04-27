@@ -102,7 +102,7 @@
             </div>
          @endif
 
-        <main class="py-4">
+        <main class="py-4 style ">
             @yield('content')
         </main>  
         <footer class="footer mt-5">

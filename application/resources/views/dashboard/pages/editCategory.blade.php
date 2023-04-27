@@ -36,13 +36,13 @@
 		<div class="p-4">
 			<div class="modal-dialog">
 				<div class="modal-content">
-					<form action="{{ route('products.update', $product )}}" method="POST" id="form" enctype="multipart/form-data">
+					<form action="{{ route('category.update', $category )}}" method="POST" id="form" enctype="multipart/form-data">
 					  @csrf
 					  @method('PUT')
 					  <div class="modal-body">
 						  <div class="mb-3">
 							  <label class="form-label">name</label>
-							  <input  type="text" class="@error('name') error-border @enderror form-control" name="name" id="name" value="{{ $product->name}}" />                            
+							  <input  type="text" class="@error('name') error-border @enderror form-control" name="name" id="name" value="{{ $category->name}}" />                            
 							  @error('name')
 								  <div class="error">
 									  {{ $message }}
@@ -51,7 +51,7 @@
 						  	</div>					  
 					    </div>
 						<div class="modal-footer">
-							<a href="{{route('users/profile', $product->id)}}" type="button" class="btn btn-light me-2">Cancel</a>
+							<a href="{{route('dashboard.index', $category->id)}}" type="button" class="btn btn-light me-2">Cancel</a>
 							<button type="submit" name="update" onclick="updateProduct()"  class="btn btn-warning" id="update-btn">Update</button>
 						</div>
 					</form>
